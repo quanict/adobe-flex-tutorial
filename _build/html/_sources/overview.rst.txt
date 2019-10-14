@@ -33,3 +33,5 @@ Nhược điểm của Flex
 
 - Flex applications are single threaded applications but Flex provides an asynchronous programming model to mitigate this concern.
 - Flex is ActionScript and XML based. Learning of these two is a must to work in Flex
+
+-aa 

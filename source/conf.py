@@ -19,7 +19,7 @@
 
 # -- Project information -----------------------------------------------------
 
-project = u'Adobe Flex Tutorial'
+project = u'Adobe Flex'
 copyright = u'2019, QuanICT'
 author = u'QuanICT'
 
@@ -48,7 +48,7 @@ extensions = [
     'sphinx.ext.ifconfig',
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
-    'recommonmark'
+    # 'recommonmark'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -85,6 +85,7 @@ pygments_style = 'sphinx'
 # a list of builtin themes.
 #
 html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -92,10 +93,18 @@ html_theme = 'alabaster'
 #
 # html_theme_options = {}
 
+# Add any paths that contain custom themes here, relative to this directory.
+# Add path to the RTD explicitly to robustify builds (otherwise might
+# fail in a clean Debian build env)
+import sphinx_rtd_theme
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 html_static_path = ['_static']
+
+
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.
@@ -183,7 +192,7 @@ epub_copyright = copyright
 # epub_uid = ''
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+# epub_exclude_files = ['search.html']
 
 
 # -- Extension configuration -------------------------------------------------
