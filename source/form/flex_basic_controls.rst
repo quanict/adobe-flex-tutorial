@@ -1,0 +1,49 @@
+Flex - Basic Controls
+=====================
+
+.. toctree::
+   :maxdepth: 3
+   :caption: Welcome
+
+
+
+Every user interface considers the following three main aspects −
+
+- **UI Elements** − These are the core visual elements the user eventually sees and interacts with. Flex provides a huge list of widely used and common elements varying from basic to complex which we will cover in this tutorial.
+- **Layouts** − They define how UI elements should be organized on the screen and provide a final look and feel to the GUI (Graphical User Interface). This part will be covered in Layout chapter.
+- **Behavior** − These events occur when the user interacts with UI elements. This part will be covered in Event Handling chapter.
+
+Flex UI Elements
+----------------
+
+The Flex UI library provides classes in a well-defined class hierarchy to create complex web-based user interfaces. All classes in this component hierarchy have been derived from the ``EventDispatcher`` base class as shown below −
+
+.. image :: ../images/flex_components.jpg
+
+Every Basic UI control inherits properties from UI Component class which in turn inherits properties from EventDispatcher and other top level classes.
+
+
+
+`Flex EventDispatcher Class <flex_eventdispatcher_class>`_
+The EventDispatcher class is the base class for all classes that can dispatch events. The EventDispatcher class allows any object on the display list to be an event target and as such, to use the methods of the IEventDispatcher interface.
+
+`Flex UIComponent <flex_uicomponent_class>`_
+The UIComponent class is the base class for all visual components, both interactive and non-interactive.
+
+
+Basic Controls
+--------------
+
+Following are the few important Basic Controls −
+
+1. `Label <../control/_label>`_
+Label is a low-level UIComponent that can render one or more lines of uniformly-formatted text.
+
+2. `Text <../control/_text>`_
+The Text control lets you display HTML content as well as normal text in your application.
+
+3. `Image <../control/_image>`_
+The Image control lets you import JPEG, PNG, GIF, and SWF files at runtime.
+
+4. `LinkButton <../control_linkbutton>`_
+The LinkButton control is a borderless Button control whose contents are highlighted when a user moves the mouse over it.
