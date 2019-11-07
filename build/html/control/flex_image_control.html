@@ -1,0 +1,364 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flex - Image Control &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flex - Image Control</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/control/flex_image_control.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flex-image-control">
+<h1>Flex - Image Control<a class="headerlink" href="#flex-image-control" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>The Image control lets you import JPEG,
+PNG,
+and GIF files at runtime.
+You can also embed any of these files at compile time by using
+&#64;Embed(source=’filename’).</p>
+<p>Embedded images load immediately,
+because they are compiled with of the Flex SWF file.
+However, they add to the size of the application
+and slow down the application initialization process.
+Embedded images also require you to recompile your applications
+whenever your image files change.</p>
+<p>You can load an image from
+the local file system in which the SWF file runs,
+or you can access a remote image,
+typically though an HTTP request over a network.
+These images are independent of your Flex application,
+so you can change them without causing
+a recompile operation as long as the names of the modified images remain the same. The referenced images add no additional overhead to an application’s initial loading time.</p>
+</div>
+<div class="section" id="class-declaration">
+<h2>Class Declaration<a class="headerlink" href="#class-declaration" title="Permalink to this headline">¶</a></h2>
+<p>Following is the declaration for <strong>spark.components.Image</strong> class −</p>
+<div class="highlight-actionscript notranslate"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kd">class</span> <span class="nx">Image</span>
+    <span class="kd">extends</span> <span class="nx">SkinnableComponent</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="public-properties">
+<h2>Public Properties<a class="headerlink" href="#public-properties" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>bitmapData : BitmapData</strong>
+[read-only] Returns a copy of the BitmapData object representing the currently loaded image content (unscaled).</p></li>
+<li><p><strong>bytesLoaded : Number</strong>
+[read-only] The number of bytes of the image already loaded.</p></li>
+<li><p><strong>bytesTotal : Number</strong>
+[read-only] The total image data in bytes loaded or pending load.</p></li>
+<li><p><strong>clearOnLoad : Boolean</strong>
+Denotes whether or not to clear previous image content prior to loading new content.</p></li>
+<li><p><strong>contentLoader : IContentLoader</strong>
+Optional custom image loader</p></li>
+<li><p><strong>contentLoaderGrouping : String</strong>
+Optional content grouping identifier to pass to the an associated IContentLoader instance’s load() method.</p></li>
+<li><p><strong>fillMode : String</strong>
+Determines how the bitmap fills in the dimensions.</p></li>
+<li><p><strong>horizontalAlign : String</strong>
+The horizontal alignment of the content when it does not have a one-toone aspect ratio and scaleMode is set to mx.graphics.BitmapScaleMode.LETTERBOX.</p></li>
+<li><p><strong>preliminaryHeight : Number</strong>
+Provides an estimate to use for height when the “measured” bounds of the image is requested by layout, but the image data has yet to complete loading.</p></li>
+<li><p><strong>preliminaryWidth : Number</strong>
+Provides an estimate to use for width when the “measured” bounds of the image is requested by layout, but the image data has yet to complete loading.</p></li>
+<li><p><strong>scaleMode : String</strong>
+Determines how the image is scaled when fillMode is set to mx.graphics.BitmapFillMode.SCALE.</p></li>
+<li><p><strong>smooth : Boolean</strong>
+Specifies whether to apply a smoothing algorithm to the bitmap image.</p></li>
+<li><p><strong>source : Object</strong>
+The source used for the bitmap fill.</p></li>
+<li><p><strong>sourceHeight : Number</strong>
+[read-only] Provides the unscaled height of the original image data.</p></li>
+<li><p><strong>sourceWidth : Number</strong>
+[read-only] Provides the unscaled width of the original image data.</p></li>
+<li><p><strong>trustedSource : Boolean</strong>
+[read-only] A read-only flag denoting whether the currently loaded content is considered loaded form a source whose security policy allows for cross domain image access.</p></li>
+<li><p><strong>verticalAlign : String</strong>
+The vertical alignment of the content when it does not have a one-to-one aspect ratio and scaleMode is set to mx.graphics.BitmapScaleMode.LETTERBOX</p></li>
+</ol>
+</div>
+<div class="section" id="public-methods">
+<h2>Public Methods<a class="headerlink" href="#public-methods" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>Image()</strong> Constructor.</p></li>
+</ol>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><strong>complete</strong> Dispatched when content loading is complete.</p></li>
+<li><p><strong>httpStatus</strong> Dispatched when a network request is made over HTTP and Flash Player can detect the HTTP status code.</p></li>
+<li><p><strong>ioError</strong> Dispatched when an input or output error occurs.</p></li>
+<li><p><strong>progress</strong> Dispatched when content is loading.</p></li>
+<li><p><strong>ready</strong> Dispatched when content loading is complete.</p></li>
+<li><p><strong>securityError</strong> Dispatched when a security error occurs.</p></li>
+</ol>
+</div>
+<div class="section" id="methods-inherited">
+<h2>Methods Inherited<a class="headerlink" href="#methods-inherited" title="Permalink to this headline">¶</a></h2>
+<p>This class inherits methods from the following classes −</p>
+<ul class="simple">
+<li><p>spark.components.supportClasses.SkinnableComponent</p></li>
+<li><p>mx.core.UIComponent</p></li>
+<li><p>mx.core.FlexSprite</p></li>
+<li><p>flash.display.Sprite</p></li>
+<li><p>flash.display.DisplayObjectContainer</p></li>
+<li><p>flash.display.InteractiveObject</p></li>
+<li><p>flash.display.DisplayObject</p></li>
+<li><p>flash.events.EventDispatcher</p></li>
+<li><p>Object</p></li>
+</ul>
+</div>
+<div class="section" id="flex-image-control-example">
+<h2>Flex Image Control Example<a class="headerlink" href="#flex-image-control-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us follow the following steps to check usage of Image control in a Flex application by creating a test application −</p>
+<ol class="arabic simple">
+<li><p>Create a project with a name HelloWorld under a packagecom.tutorialspoint.client as explained in the Flex - Create Application chapter.</p></li>
+<li><p>Create a foler assets in HelloWorld application root folder HelloWorld.</p></li>
+<li><p>Download a sample image flex-mini.png to a folder assets under HelloWorld folder.</p></li>
+<li><p>Modify HelloWorld.mxml as explained below. Keep rest of the files unchanged.</p></li>
+<li><p>Compile and run the application to make sure business logic is working as per the requirements.</p></li>
+</ol>
+<p>Following is the content of the modified mxml file <strong>src/com.tutorialspoint/HelloWorld.mxml</strong>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;</span>
+    <span class="nt">&lt;s:Application</span> <span class="na">xmlns:fx =</span> <span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+    <span class="na">xmlns:s =</span> <span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+    <span class="na">xmlns:mx =</span> <span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span>
+    <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">minWidth =</span> <span class="s">&quot;500&quot;</span> <span class="na">minHeight =</span> <span class="s">&quot;500&quot;</span>
+    <span class="na">applicationComplete =</span> <span class="s">&quot;init(event)&quot;</span> <span class="nt">&gt;</span>
+
+        <span class="nt">&lt;fx:Style</span> <span class="na">source =</span> <span class="s">&quot;/com/tutorialspoint/client/Style.css&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;fx:Script&gt;</span>
+            <span class="cp">&lt;![CDATA[</span>
+<span class="cp">                import mx.controls.Alert;</span>
+<span class="cp">                import mx.events.FlexEvent;</span>
+
+<span class="cp">                [Bindable]</span>
+<span class="cp">                [Embed(source = &quot;assets/flex-mini.jpg&quot;)]</span>
+<span class="cp">                private var flexImage:Class;</span>
+<span class="cp">                protected function init(event:FlexEvent):void {</span>
+<span class="cp">                    dynamicImage.source =</span>
+<span class="cp">                    &quot;http://www.tutorialspoint.com/images/flex-mini.png&quot;;</span>
+<span class="cp">                }</span>
+
+<span class="cp">            ]]&gt;</span>
+        <span class="nt">&lt;/fx:Script&gt;</span>
+
+        <span class="nt">&lt;s:BorderContainer</span> <span class="na">width =</span> <span class="s">&quot;550&quot;</span> <span class="na">height =</span> <span class="s">&quot;600&quot;</span> <span class="na">id =</span> <span class="s">&quot;mainContainer&quot;</span>
+            <span class="na">styleName =</span> <span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;s:VGroup</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">gap =</span> <span class="s">&quot;50&quot;</span> <span class="na">horizontalAlign =</span> <span class="s">&quot;center&quot;</span>
+                <span class="na">verticalAlign =</span> <span class="s">&quot;middle&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;lblHeader&quot;</span> <span class="na">text =</span> <span class="s">&quot;Basic Controls Demonstration&quot;</span>
+                    <span class="na">fontSize =</span> <span class="s">&quot;40&quot;</span> <span class="na">color =</span> <span class="s">&quot;0x777777&quot;</span> <span class="na">styleName =</span> <span class="s">&quot;heading&quot;</span> <span class="nt">/&gt;</span>
+
+                <span class="nt">&lt;s:Panel</span> <span class="na">title =</span> <span class="s">&quot;Using Embeded Image&quot;</span> <span class="na">width =</span> <span class="s">&quot;420&quot;</span> <span class="na">height =</span> <span class="s">&quot;200&quot;</span> <span class="nt">&gt;</span>
+                    <span class="nt">&lt;s:Image</span> <span class="na">source =</span> <span class="s">&quot;{flexImage}&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/s:Panel&gt;</span>
+                <span class="nt">&lt;s:Panel</span> <span class="na">title =</span> <span class="s">&quot;Using Image from URL&quot;</span> <span class="na">width =</span> <span class="s">&quot;420&quot;</span> <span class="na">height =</span> <span class="s">&quot;200&quot;</span> <span class="nt">&gt;</span>
+                    <span class="nt">&lt;s:Image</span> <span class="na">id =</span> <span class="s">&quot;dynamicImage&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/s:Panel&gt;</span>
+            <span class="nt">&lt;/s:VGroup&gt;</span>
+        <span class="nt">&lt;/s:BorderContainer&gt;</span>
+    <span class="nt">&lt;/s:Application&gt;</span>
+</pre></div>
+</div>
+<p>Once you are ready with all the changes done,
+let us compile and run the application in normal mode as we did in <a class="reference external" href="../application/flex_create_application.html">Flex - Create Application</a> chapter.
+If everything is fine with your application, it will produce the following result:
+[ <a class="reference external" href="https://www.tutorialspoint.com/flex/samples/BasicControlsApplication.html">Try it online</a> ]</p>
+<img alt="../_images/flex_image_control.jpg" src="../_images/flex_image_control.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

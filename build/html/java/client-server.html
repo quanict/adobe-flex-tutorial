@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Client/server architecture &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flash Remoting" href="flash-remoting.html" />
+    <link rel="prev" title="The architecture of Flex and Java applications" href="architecture.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Client/server architecture</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-server-communication">Client/server communication</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="architecture.html">The architecture of Flex and Java applications</a> &raquo;</li>
+        
+      <li>Client/server architecture</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/java/client-server.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="client-server-architecture">
+<h1>Client/server architecture<a class="headerlink" href="#client-server-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Flex and Java applications use a multi-tier architecture where the presentation tier is the Flex application,
+the business or application tier is the Java EE server and code, and the data tier is the database.
+You can write the back-end code just as you normally would for a Java application, modeling your objects,
+defining your database, using an object-relational framework such as Hibernate or EJB 3,
+and writing the business logic to query and manipulate these objects.
+The business tier must be exposed for access via HTTP from the Flex application and will be used to move the data between the presentation and data tiers.</p>
+<p>Typical HTML applications consist of multiple pages and as a user navigates between them, the application data must be passed along so the application itself (the collection of pages and functionality it consists of) can maintain state. In contrast, Flex applications, by nature, are stateful. A Flex application is embedded in a single HTML page that the user does not leave and is rendered by Flash Player. The Flex application can dynamically change views and send and retrieve data asynchronously to the server in the background, updating but never leaving the single application interface (see Figure 1) (similar to the functionality provided by the XMLHttpRequest API with JavaScript.)</p>
+<img alt="Figure 1. The client/server architecture." src="../_images/1278990442837.jpg" />
+<p><strong>Figure 1</strong>. The client/server architecture.</p>
+<div class="section" id="client-server-communication">
+<h2>Client/server communication<a class="headerlink" href="#client-server-communication" title="Permalink to this headline">¶</a></h2>
+<p>Flex applications can communicate with back-end servers using either direct socket connections or more commonly, through HTTP.
+The Flex framework has three remote procedure call APIs that communicate with a server over HTTP: HTTPService, WebService, and RemoteObject.
+All three wrap Flash Player’s HTTP connectivity, which in turn, uses the browser’s HTTP library.
+Flex applications cannot connect directly to a remote database.</p>
+<p>You use HTTPService to make HTTP requests to JSP or XML files,
+to RESTful web services, or to other server files that return text over HTTP.
+You specify the endpoint URL, listener functions (the callback functions to be invoked when the HTTPService request returns a successful or unsuccessful response),
+and a data type for the returned data (what type of data structure it should be translated into once received in the Flex application).
+You can specify the data to be handled as raw text and assigned to a String variable or converted to XML, E4X, or plain old ActionScript objects.
+If you get back JSON, you can use the <a class="reference external" href="http://code.google.com/p/as3corelib/">Adobe Flex corelib</a> package of classes to deserialize the JSON objects into ActionScript objects.
+To make calls to SOAP based web services, you can use the HTTPService API or the more specialized WebService API,
+which automatically handles the serialization and deserialization of SOAP formatted text to ActionScript data types and vice versa.</p>
+<p>The third option for making remote procedure calls is to use the RemoteObject API.
+It makes a Flash Remoting request to a method of a server-side Java class that returns binary Action Message Format over HTTP.
+When possible, use Flash Remoting whose binary data transfer format enables applications to load data up to 10 times faster than with the more verbose,
+text-based formats such as XML, JSON, or SOAP (see Figure 2).
+To see a comparison of AMF to other text-based serialization technologies,
+see <a class="reference external" href="http://www.jamesward.org/census">James Ward’s Census RIA Benchmark application</a>.</p>
+<img alt="Figure 2. Methods for connecting Flex and Java." src="../_images/1278990616239.jpg" />
+<p><strong>Figure 2</strong>. Methods for connecting Flex and Java.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flash-remoting.html" class="btn btn-neutral float-right" title="Flash Remoting" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="architecture.html" class="btn btn-neutral float-left" title="The architecture of Flex and Java applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

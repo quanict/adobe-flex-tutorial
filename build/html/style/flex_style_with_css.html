@@ -1,0 +1,404 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flex - Style with CSS &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flex - Style with Skin" href="flex_style_with_skin.html" />
+    <link rel="prev" title="Flex - Create Application" href="../application/flex_create_application.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Style with CSS</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#using-external-style-sheet-file">1: Using External Style Sheet File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-styles-within-ui-container-component">2: Using Styles Within Ui Container Component</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#type-level-selector">Type Level Selector</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flex-style-with-css-example">Flex Style with CSS Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flex_style_with_skin.html">Flex - Style with Skin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flex - Style with CSS</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/style/flex_style_with_css.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flex-style-with-css">
+<h1>Flex - Style with CSS<a class="headerlink" href="#flex-style-with-css" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Flex supports the use of CSS syntax and styles to apply to its UI controls in the same way as CSS to HTML components.</p>
+<div class="section" id="using-external-style-sheet-file">
+<h2>1: Using External Style Sheet File<a class="headerlink" href="#using-external-style-sheet-file" title="Permalink to this headline">¶</a></h2>
+<p>You can refer to a style sheet available in the class path of the application. For example consider Style.css file in com/tutorialspoint/client folder where HelloWorld.mxml file also lies.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* CSS file */</span>
+<span class="p">@</span><span class="k">namespace</span> <span class="nt">s</span> <span class="s2">&quot;library://ns.adobe.com/flex/spark&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">namespace</span> <span class="nt">mx</span> <span class="s2">&quot;library://ns.adobe.com/flex/mx&quot;</span><span class="p">;</span>
+<span class="o">...</span>
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+<span class="n">cornerRadius</span> <span class="p">:</span><span class="mi">10</span><span class="p">;</span>
+<span class="n">horizontalCenter</span> <span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">borderColor</span><span class="p">:</span> <span class="mh">#777777</span><span class="p">;</span>
+<span class="n">verticalCenter</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+<span class="n">backgroundColor</span><span class="p">:</span> <span class="mh">#efefef</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Then css file can be referred by following code snippet</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fx:Style</span> <span class="na">source =</span> <span class="s">&quot;/com/tutorialspoint/client/Style.css&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<p>Assign styles to UI component using styleName property</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;s:BorderContainer</span> <span class="na">width =</span> <span class="s">&quot;500&quot;</span> <span class="na">height =</span> <span class="s">&quot;500&quot;</span> <span class="na">id =</span> <span class="s">&quot;mainContainer&quot;</span>
+<span class="na">styleName =</span> <span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+...
+<span class="nt">&lt;/s:BorderContainer&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-styles-within-ui-container-component">
+<h2>2: Using Styles Within Ui Container Component<a class="headerlink" href="#using-styles-within-ui-container-component" title="Permalink to this headline">¶</a></h2>
+<p>You can define styles within UI container component using &lt;fx:Style&gt; tag</p>
+<p>Class Level Selector</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fx:Style&gt;</span>
+    @namespace s &quot;library://ns.adobe.com/flex/spark&quot;;
+    @namespace mx &quot;library://ns.adobe.com/flex/mx&quot;;
+
+    /* class level selector  */
+    .errorLabel {
+        color: red;
+    }
+<span class="nt">&lt;/fx:Style&gt;</span>
+</pre></div>
+</div>
+<p>Assign styles to UI component using styleName property.</p>
+<blockquote>
+<div><p>&lt;s:Label id = “errorMsg” text = “This is an error message” styleName = “errorLabel” /&gt;</p>
+</div></blockquote>
+<p>Id Level Selector</p>
+<p>Style UI component using id selector.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fx:Style&gt;</span>
+/* id level selector  */
+#msgLabel {
+    color: gray;
+}
+<span class="nt">&lt;/fx:Style&gt;</span>
+
+<span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;msgLabel&quot;</span> <span class="na">text =</span> <span class="s">&quot;This is a normal message&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+<div class="section" id="type-level-selector">
+<h3>Type Level Selector<a class="headerlink" href="#type-level-selector" title="Permalink to this headline">¶</a></h3>
+<p>Style one type of UI Component in one GO.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fx:Style&gt;</span>
+/* style applied on all buttons  */
+    s|Button {
+        fontSize: 15;
+        color: #9933FF;
+    }
+<span class="nt">&lt;/fx:Style&gt;</span>
+
+<span class="nt">&lt;s:Button</span> <span class="na">label =</span> <span class="s">&quot;Click Me!&quot;</span> <span class="na">id =</span> <span class="s">&quot;btnClickMe&quot;</span>
+<span class="na">click =</span> <span class="s">&quot;btnClickMe_clickHandler(event)&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="flex-style-with-css-example">
+<h2>Flex Style with CSS Example<a class="headerlink" href="#flex-style-with-css-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us follow the steps to check CSS styling of a Flex application by creating a test application −</p>
+<ol class="arabic simple">
+<li><p>Create a project with a name HelloWorld under a packagecom.tutorialspoint.client as explained in the Flex - Create Application chapter.</p></li>
+<li><p>Modify Style.css, HelloWorld.mxml as explained below. Keep rest of the files unchanged.</p></li>
+<li><p>Compile and run the application to make sure business logic is working as per the requirements.</p></li>
+</ol>
+<p>Following is the content of the modified CSS file src/com.tutorialspoint/Style.css.</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="c">/* CSS file */</span>
+<span class="p">@</span><span class="k">namespace</span> <span class="nt">s</span> <span class="s2">&quot;library://ns.adobe.com/flex/spark&quot;</span><span class="p">;</span>
+<span class="p">@</span><span class="k">namespace</span> <span class="nt">mx</span> <span class="s2">&quot;library://ns.adobe.com/flex/mx&quot;</span><span class="p">;</span>
+
+<span class="p">.</span><span class="nc">heading</span>
+<span class="p">{</span>
+    <span class="n">fontFamily</span><span class="p">:</span> <span class="n">Arial</span><span class="p">,</span> <span class="n">Helvetica</span><span class="p">,</span> <span class="kc">sans-serif</span><span class="p">;</span>
+    <span class="n">fontSize</span><span class="p">:</span> <span class="mi">17</span><span class="kt">px</span><span class="p">;</span>
+    <span class="k">color</span><span class="p">:</span> <span class="mh">#9b1204</span><span class="p">;</span>
+    <span class="n">textDecoration</span><span class="p">:</span><span class="kc">none</span><span class="p">;</span>
+    <span class="n">fontWeight</span><span class="p">:</span><span class="kc">normal</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">button</span> <span class="p">{</span>
+    <span class="n">fontWeight</span><span class="p">:</span> <span class="kc">bold</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="p">.</span><span class="nc">container</span> <span class="p">{</span>
+    <span class="n">cornerRadius</span> <span class="p">:</span><span class="mi">10</span><span class="p">;</span>
+    <span class="n">horizontalCenter</span> <span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">borderColor</span><span class="p">:</span> <span class="mh">#777777</span><span class="p">;</span>
+    <span class="n">verticalCenter</span><span class="p">:</span><span class="mi">0</span><span class="p">;</span>
+    <span class="n">backgroundColor</span><span class="p">:</span> <span class="mh">#efefef</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Following is the content of the modified mxml file src/com.tutorialspoint/HelloWorld.mxml.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;s:Application</span> <span class="na">xmlns:fx =</span> <span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+<span class="na">xmlns:s =</span> <span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+<span class="na">xmlns:mx =</span> <span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span>
+<span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">minWidth =</span> <span class="s">&quot;500&quot;</span> <span class="na">minHeight =</span> <span class="s">&quot;500&quot;</span>
+<span class="na">initialize =</span> <span class="s">&quot;application_initializeHandler(event)&quot;</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!--Add reference to style sheet --&gt;</span>
+<span class="nt">&lt;fx:Style</span> <span class="na">source =</span> <span class="s">&quot;/com/tutorialspoint/client/Style.css&quot;</span> <span class="nt">/&gt;</span>
+
+<span class="c">&lt;!--Using styles within mxml file --&gt;</span>
+<span class="nt">&lt;fx:Style&gt;</span>
+    @namespace s &quot;library://ns.adobe.com/flex/spark&quot;;
+    @namespace mx &quot;library://ns.adobe.com/flex/mx&quot;;
+
+    /* class level selector  */
+    .errorLabel {
+        color: red;
+    }
+
+    /* id level selector  */
+    #msgLabel {
+        color: gray;
+    }
+
+    /* style applied on all buttons  */
+    s|Button {
+        fontSize: 15;
+        color: #9933FF;
+    }
+<span class="nt">&lt;/fx:Style&gt;</span>
+
+<span class="nt">&lt;fx:Script&gt;</span>
+    <span class="cp">&lt;![CDATA[</span>
+<span class="cp">        import mx.controls.Alert;</span>
+<span class="cp">        import mx.events.FlexEvent;</span>
+<span class="cp">        protected function btnClickMe_clickHandler(event:MouseEvent):void {</span>
+<span class="cp">            Alert.show(&quot;Hello World!&quot;);</span>
+<span class="cp">        }</span>
+
+<span class="cp">        protected function application_initializeHandler(event:FlexEvent):void {</span>
+<span class="cp">            lblHeader.text = &quot;CSS Demonstrating Application&quot;;</span>
+<span class="cp">        }</span>
+<span class="cp">    ]]&gt;</span>
+<span class="nt">&lt;/fx:Script&gt;</span>
+
+<span class="nt">&lt;s:BorderContainer</span> <span class="na">width =</span> <span class="s">&quot;560&quot;</span> <span class="na">height =</span> <span class="s">&quot;500&quot;</span> <span class="na">id =</span> <span class="s">&quot;mainContainer&quot;</span>
+    <span class="na">styleName =</span> <span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;s:VGroup</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">gap =</span> <span class="s">&quot;50&quot;</span>
+        <span class="na">horizontalAlign =</span> <span class="s">&quot;center&quot;</span> <span class="na">verticalAlign =</span> <span class="s">&quot;middle&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;s:Label</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">id =</span> <span class="s">&quot;lblHeader&quot;</span> <span class="na">fontSize =</span> <span class="s">&quot;40&quot;</span>
+            <span class="na">color =</span> <span class="s">&quot;0x777777&quot;</span> <span class="na">styleName =</span> <span class="s">&quot;heading&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:Button</span> <span class="na">label =</span> <span class="s">&quot;Click Me!&quot;</span> <span class="na">id =</span> <span class="s">&quot;btnClickMe&quot;</span>
+            <span class="na">click =</span> <span class="s">&quot;btnClickMe_clickHandler(event)&quot;</span>  <span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;errorMsg&quot;</span>
+            <span class="na">text =</span> <span class="s">&quot;This is an error message&quot;</span> <span class="na">styleName =</span> <span class="s">&quot;errorLabel&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;msgLabel&quot;</span> <span class="na">text =</span> <span class="s">&quot;This is a normal message&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/s:VGroup&gt;</span>
+<span class="nt">&lt;/s:BorderContainer&gt;</span>
+<span class="nt">&lt;/s:Application&gt;</span>
+</pre></div>
+</div>
+<p>Once you are ready with all the changes done, let us compile and run the application in normal mode as we did in Flex - Create Application chapter. If everything is fine with your application, this will produce following result: [ Try it online ]</p>
+<img alt="flex_style_css_demo" src="../_images/flex_style_css_demo.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flex_style_with_skin.html" class="btn btn-neutral float-right" title="Flex - Style with Skin" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../application/flex_create_application.html" class="btn btn-neutral float-left" title="Flex - Create Application" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,366 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flex - Data Binding &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flex - Basic Controls" href="flex_basic_controls.html" />
+    <link rel="prev" title="Flex - Style with Skin" href="../style/flex_style_with_skin.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Data Binding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-data-binding">What is Data Binding?</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#data-binding-using-curly-braces-in-mxml">Data Binding – Using Curly Braces in MXML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-binding-using-fx-binding-tag-in-mxml">Data Binding – Using &lt;fx:Binding&gt; tag in MXML</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#data-binding-using-bindingutils-in-actionscript">Data Binding – Using BindingUtils in ActionScript</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flex-data-binding-example">Flex Data Binding Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flex_basic_controls.html">Flex - Basic Controls</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flex - Data Binding</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/form/flex_data_binding.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flex-data-binding">
+<h1>Flex - Data Binding<a class="headerlink" href="#flex-data-binding" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="what-is-data-binding">
+<h2>What is Data Binding?<a class="headerlink" href="#what-is-data-binding" title="Permalink to this headline">¶</a></h2>
+<p>Data Binding is a process in which data of one object is tied to another object. It requires a source property, a destination property and a triggering event which indicates, when to copy the data from source to destination.</p>
+<p>Flex provides three ways to do Data Binding as below</p>
+<ul class="simple">
+<li><p>Curly brace syntax in MXML Script ({})</p></li>
+<li><p>&lt;fx:binding&gt; tag in MXML</p></li>
+<li><p>BindingUtils in ActionScript</p></li>
+</ul>
+<div class="section" id="data-binding-using-curly-braces-in-mxml">
+<h3>Data Binding – Using Curly Braces in MXML<a class="headerlink" href="#data-binding-using-curly-braces-in-mxml" title="Permalink to this headline">¶</a></h3>
+<p>The following example demonstrates how to use curly braces to specify data binding of a source to destination.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;s:TextInput</span> <span class="na">id =</span> <span class="s">&quot;txtInput1&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;s:TextInput</span> <span class="na">id =</span> <span class="s">&quot;txtInput2&quot;</span> <span class="na">text =</span> <span class="s">&quot;{txtInput1.text}&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-binding-using-fx-binding-tag-in-mxml">
+<h3>Data Binding – Using &lt;fx:Binding&gt; tag in MXML<a class="headerlink" href="#data-binding-using-fx-binding-tag-in-mxml" title="Permalink to this headline">¶</a></h3>
+<p>The following example demonstrates how to use tag to specify data binding of a source to destination.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;fx:Binding</span> <span class="na">source =</span> <span class="s">&quot;txtInput1.text&quot;</span> <span class="na">destination =</span> <span class="s">&quot;txtInput2.text&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;s:TextInput</span> <span class="na">id =</span> <span class="s">&quot;txtInput1&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;s:TextInput</span> <span class="na">id =</span> <span class="s">&quot;txtInput2&quot;</span> <span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-binding-using-bindingutils-in-actionscript">
+<h3>Data Binding – Using BindingUtils in ActionScript<a class="headerlink" href="#data-binding-using-bindingutils-in-actionscript" title="Permalink to this headline">¶</a></h3>
+<p>The following example demonstrates how to use BindingUtils to specify data binding of a source to destination.</p>
+<div class="highlight-actionscript notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nx">fx</span><span class="o">:</span><span class="nx">Script</span><span class="o">&gt;</span>
+<span class="o">&lt;!</span><span class="p">[</span><span class="nx">CDATA</span><span class="p">[</span>
+    <span class="kd">import</span> <span class="nx">mx</span><span class="p">.</span><span class="nx">binding</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">BindingUtils</span><span class="o">;</span>
+    <span class="kd">import</span> <span class="nx">mx</span><span class="p">.</span><span class="nx">events</span><span class="p">.</span><span class="nx">FlexEvent</span><span class="o">;</span>
+
+    <span class="kd">protected</span> <span class="kd">function</span> <span class="nx">txtInput2_preinitializeHandler</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nx">FlexEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span> <span class="p">{</span>
+        <span class="nx">BindingUtils</span><span class="p">.</span><span class="nx">bindProperty</span><span class="p">(</span><span class="nx">txtInput2</span><span class="o">,</span><span class="s2">&quot;text&quot;</span><span class="o">,</span><span class="nx">txtInput1</span><span class="o">,</span> <span class="s2">&quot;text&quot;</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">]]</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nx">fx</span><span class="o">:</span><span class="nx">Script</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="nx">s</span><span class="o">:</span><span class="nx">TextInput</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;txtInput1&quot;</span> <span class="o">/&gt;</span>
+<span class="o">&lt;</span><span class="nx">s</span><span class="o">:</span><span class="nx">TextInput</span> <span class="nx">id</span> <span class="o">=</span> <span class="s2">&quot;txtInput2&quot;</span> <span class="nx">preinitialize</span> <span class="o">=</span> <span class="s2">&quot;txtInput2_preinitializeHandler(event)&quot;</span> <span class="o">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="flex-data-binding-example">
+<h2>Flex Data Binding Example<a class="headerlink" href="#flex-data-binding-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us follow the steps given below to see skinning in action in a Flex application by creating a test application −</p>
+<ol class="arabic simple">
+<li><p>Create a project with a name HelloWorld under a packagecom.tutorialspoint.client as explained in the Flex - Create Application chapter.</p></li>
+<li><p>Modify HelloWorld.mxml as explained below. Keep rest of the files unchanged.</p></li>
+<li><p>Compile and run the application to make sure business logic is working as per the requirements.</p></li>
+</ol>
+<p>Following is the content of the modified <strong>HelloWorld.mxml</strong> <code class="docutils literal notranslate"><span class="pre">filesrc/com/tutorialspoint/client/HelloWorld.mxml</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span>&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;
+    &lt;s:Application xmlns:fx = &quot;http://ns.adobe.com/mxml/2009&quot;
+    xmlns:s = &quot;library://ns.adobe.com/flex/spark&quot;
+    xmlns:mx = &quot;library://ns.adobe.com/flex/mx
+    width = &quot;100%&quot; height = &quot;100%&quot; minWidth = &quot;500&quot; minHeight = &quot;500&quot;&gt;
+
+        &lt;fx:Style source = &quot;/com/tutorialspoint/client/Style.css&quot; /&gt;
+        &lt;fx:Script&gt;
+            &lt;![CDATA[
+                import mx.binding.utils.BindingUtils;
+                import mx.events.FlexEvent;
+
+                protected function txtInput6_preinitializeHandler(event:FlexEvent):void {
+                    BindingUtils.bindProperty(txtInput6,&quot;text&quot;,txtInput5, &quot;text&quot;);
+                }
+            ]]&gt;
+        &lt;/fx:Script&gt;
+
+        &lt;fx:Binding source = &quot;txtInput3.text&quot; destination = &quot;txtInput4.text&quot; /&gt;
+        &lt;s:BorderContainer width = &quot;500&quot; height = &quot;550&quot; id = &quot;mainContainer&quot;
+            styleName = &quot;container&quot;&gt;
+            &lt;s:VGroup width = &quot;100%&quot; height = &quot;100%&quot; gap = &quot;50&quot; horizontalAlign = &quot;center&quot;
+                verticalAlign = &quot;middle&quot;&gt;
+                &lt;s:Label id = &quot;lblHeader&quot; text = &quot;Data Binding Demonstration&quot;
+                    fontSize = &quot;40&quot; color = &quot;0x777777&quot; styleName = &quot;heading&quot; /&gt;
+                &lt;s:Panel title = &quot;Example #1 (Using Curly Braces,\{\})&quot; width = &quot;400&quot;
+                    height = &quot;100&quot; &gt;
+                    &lt;s:layout&gt;
+                    &lt;s:VerticalLayout paddingTop = &quot;10&quot; paddingLeft = &quot;10&quot; /&gt;
+                    &lt;/s:layout&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Type here: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:TextInput id = &quot;txtInput1&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Copied text: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:TextInput id = &quot;txtInput2&quot; text = &quot;{txtInput1.text}&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+                &lt;/s:Panel&gt;
+
+                &lt;s:Panel title = &quot;Example #2 (Using &amp;lt;fx:Binding&amp;gt;)&quot; width = &quot;400&quot;
+                    height = &quot;100&quot; &gt;
+                    &lt;s:layout&gt;
+                    &lt;s:VerticalLayout paddingTop = &quot;10&quot; paddingLeft = &quot;10&quot; /&gt;
+                    &lt;/s:layout&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Type here: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:TextInput id = &quot;txtInput3&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Copied text: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:Label id = &quot;txtInput4&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+                &lt;/s:Panel&gt;
+
+                &lt;s:Panel title = &quot;Example #3 (Using BindingUtils)&quot; width = &quot;400&quot;
+                    height = &quot;100&quot; &gt;
+                    &lt;s:layout&gt;
+                    &lt;s:VerticalLayout paddingTop = &quot;10&quot; paddingLeft = &quot;10&quot; /&gt;
+                    &lt;/s:layout&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Type here: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:TextInput id = &quot;txtInput5&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+
+                    &lt;s:HGroup &gt;
+                    &lt;s:Label text = &quot;Copied text: &quot; width = &quot;100&quot; paddingTop = &quot;6&quot; /&gt;
+                    &lt;s:TextInput enabled = &quot;false&quot; id = &quot;txtInput6&quot;
+                        preinitialize = &quot;txtInput6_preinitializeHandler(event)&quot; /&gt;
+                    &lt;/s:HGroup&gt;
+                &lt;/s:Panel&gt;
+            &lt;/s:VGroup&gt;
+        &lt;/s:BorderContainer&gt;
+    &lt;/s:Application&gt;
+</pre></div>
+</div>
+<p>Once you are ready with all the changes done, let us compile and run the application in normal mode as we did in Flex - Create Application chapter. If everything is fine with your application, it will produce the following result: [ Try it online ]</p>
+<img alt="../_images/flex_data_binding.jpg" src="../_images/flex_data_binding.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flex_basic_controls.html" class="btn btn-neutral float-right" title="Flex - Basic Controls" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../style/flex_style_with_skin.html" class="btn btn-neutral float-left" title="Flex - Style with Skin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

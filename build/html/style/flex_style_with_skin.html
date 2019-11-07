@@ -1,0 +1,390 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flex - Style with Skin &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flex - Data Binding" href="../form/flex_data_binding.html" />
+    <link rel="prev" title="Flex - Style with CSS" href="flex_style_with_css.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flex_style_with_css.html">Flex - Style with CSS</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Style with Skin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-skinning">What is Skinning?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-1-create-a-skin">Step 1 – Create a Skin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#step-2-apply-skin">Step 2: Apply Skin</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#apply-skin-in-mxml-script-statically">Apply skin in MXML script (statically)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#apply-skin-in-actionscript-dynamically">Apply skin in ActionScript (dynamically)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#flex-style-with-skin-example">Flex Style with Skin Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flex - Style with Skin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/style/flex_style_with_skin.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flex-style-with-skin">
+<h1>Flex - Style with Skin<a class="headerlink" href="#flex-style-with-skin" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="what-is-skinning">
+<h2>What is Skinning?<a class="headerlink" href="#what-is-skinning" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Skinning in Flex, is a process of customizing look and feel of a UI Component completely.</p></li>
+<li><p>A Skin can define text, image, filters, transitions and states of a component.</p></li>
+<li><p>A Skin can be created as a separate mxml or ActionScript component.</p></li>
+<li><p>Using skin, we can control all visual aspects of a UI component.</p></li>
+<li><p>The process of defining skin is same for all the UI component.</p></li>
+</ul>
+</div>
+<div class="section" id="step-1-create-a-skin">
+<h2>Step 1 – Create a Skin<a class="headerlink" href="#step-1-create-a-skin" title="Permalink to this headline">¶</a></h2>
+<p>Launch Create MXML Skin wizard using the option <strong>File &gt; New &gt; MXML Skin</strong>.</p>
+<img alt="flex_skin_wizard" src="../_images/flex_skin_wizard.jpg" />
+<p>Enter Package as <strong>com.tutorialspoint.skin</strong>, name as <code class="docutils literal notranslate"><span class="pre">GradientBackgroundSkin</span></code> and choose host component as existing flex BorderContainer controlspark.component.BorderContainer.</p>
+<p>Now you’ve created a skin for a BorderContainer. Modify content of the mxml skin file <code class="docutils literal notranslate"><span class="pre">src/com.tutorialspoint/skin/GradientBackgroundSkin.mxml</span></code>.</p>
+<p>Update fill layer as follows −</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="c">&lt;!-- fill --&gt;</span>
+<span class="nt">&lt;s:Rect</span> <span class="na">id =</span> <span class="s">&quot;backgroundRect&quot;</span> <span class="na">left =</span> <span class="s">&quot;0&quot;</span> <span class="na">right =</span> <span class="s">&quot;0&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">top =</span> <span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+<span class="nt">&lt;s:fill&gt;</span>
+    <span class="nt">&lt;s:LinearGradient</span> <span class="na">rotation =</span> <span class="s">&quot;90&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;s:GradientEntry</span> <span class="na">color =</span> <span class="s">&quot;0x888888&quot;</span> <span class="na">ratio =</span> <span class="s">&quot;0.2&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:GradientEntry</span> <span class="na">color =</span> <span class="s">&quot;0x111111&quot;</span> <span class="na">ratio =</span> <span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/s:LinearGradient&gt;</span>
+<span class="nt">&lt;/s:fill&gt;</span>
+<span class="nt">&lt;/s:Rect&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="step-2-apply-skin">
+<h2>Step 2: Apply Skin<a class="headerlink" href="#step-2-apply-skin" title="Permalink to this headline">¶</a></h2>
+<p>You can apply skin over a component in two ways −</p>
+<div class="section" id="apply-skin-in-mxml-script-statically">
+<h3>Apply skin in MXML script (statically)<a class="headerlink" href="#apply-skin-in-mxml-script-statically" title="Permalink to this headline">¶</a></h3>
+<p>Apply <code class="docutils literal notranslate"><span class="pre">GradientBackgroundSkin</span></code> to a BorderContainer with id <code class="docutils literal notranslate"><span class="pre">mainContainer</span></code> using its skinClass attribute.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;s:BorderContainer</span> <span class="na">width =</span> <span class="s">&quot;560&quot;</span> <span class="na">height =</span> <span class="s">&quot;500&quot;</span> <span class="na">id =</span> <span class="s">&quot;mainContainer&quot;</span>
+<span class="na">styleName =</span> <span class="s">&quot;container&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;s:VGroup</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">gap =</span> <span class="s">&quot;50&quot;</span>
+        <span class="na">horizontalAlign =</span> <span class="s">&quot;center&quot;</span> <span class="na">verticalAlign =</span> <span class="s">&quot;middle&quot;</span>
+        <span class="na">skinClass =</span> <span class="s">&quot;com.tutorialspoint.skin.GradientBackgroundSkin&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="apply-skin-in-actionscript-dynamically">
+<h3>Apply skin in ActionScript (dynamically)<a class="headerlink" href="#apply-skin-in-actionscript-dynamically" title="Permalink to this headline">¶</a></h3>
+<p>Apply <code class="docutils literal notranslate"><span class="pre">GradientBackgroundSkin</span></code> to a BorderContainer with id <code class="docutils literal notranslate"><span class="pre">mainContainer</span></code> using its skinClass property.</p>
+<div class="highlight-actionscript notranslate"><div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kd">function</span> <span class="nx">gradientBackground_clickHandler</span><span class="p">(</span><span class="nx">event</span><span class="o">:</span><span class="nb">MouseEvent</span><span class="p">)</span><span class="o">:</span><span class="nx">void</span> <span class="p">{</span>
+    <span class="nx">mainContainer</span><span class="p">.</span><span class="nx">setStyle</span><span class="p">(</span><span class="s2">&quot;skinClass&quot;</span><span class="o">,</span> <span class="nx">GradientBackgroundSkin</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="flex-style-with-skin-example">
+<h2>Flex Style with Skin Example<a class="headerlink" href="#flex-style-with-skin-example" title="Permalink to this headline">¶</a></h2>
+<p>Let us follow the following steps to see skinning in action in a Flex application by creating a test application −</p>
+<ol class="arabic simple">
+<li><p>Create a project with a name HelloWorld under a packagecom.tutorialspoint.client as explained in the Flex - Create Application chapter.</p></li>
+<li><p>Create skin GradientBackgroundSkin.mxml under a packagecom.tutorialspoint.skin as explained above. Keep rest of the files unchanged.</p></li>
+<li><p>Modify HelloWorld.mxml as explained below. Keep rest of the files unchanged.</p></li>
+<li><p>Compile and run the application to make sure business logic is working as per the requirements.</p></li>
+</ol>
+<p>Following is the content of the GradientBackgroundSkin.mxml file <code class="docutils literal notranslate"><span class="pre">src/com/tutorialspoint/skin/GradientBackg</span> <span class="pre">roundSkin.mxml</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;</span>
+    <span class="nt">&lt;s:Skin</span> <span class="na">xmlns:fx =</span> <span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+    <span class="na">xmlns:s =</span> <span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+    <span class="na">xmlns:mx =</span> <span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span><span class="nt">&gt;</span>
+
+        <span class="c">&lt;!-- host component --&gt;</span>
+        <span class="nt">&lt;fx:Metadata&gt;</span>
+            [HostComponent(&quot;spark.components.BorderContainer&quot;)]
+        <span class="nt">&lt;/fx:Metadata&gt;</span>
+
+        <span class="c">&lt;!-- states --&gt;</span>
+        <span class="nt">&lt;s:states&gt;</span>
+            <span class="nt">&lt;s:State</span> <span class="na">name =</span> <span class="s">&quot;disabled&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;s:State</span> <span class="na">name =</span> <span class="s">&quot;disabled&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;s:State</span> <span class="na">name =</span> <span class="s">&quot;normal&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/s:states&gt;</span>
+
+        <span class="c">&lt;!-- SkinParts</span>
+<span class="c">        name = contentGroup, type = spark.components.Group, required = false</span>
+<span class="c">        --&gt;</span>
+
+        <span class="c">&lt;!-- fill --&gt;</span>
+        <span class="nt">&lt;s:Rect</span> <span class="na">id =</span> <span class="s">&quot;backgroundRect&quot;</span> <span class="na">left =</span> <span class="s">&quot;0&quot;</span> <span class="na">right =</span> <span class="s">&quot;0&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">top =</span> <span class="s">&quot;0&quot;</span><span class="nt">&gt;</span>
+            <span class="nt">&lt;s:fill&gt;</span>
+                <span class="nt">&lt;s:LinearGradient</span> <span class="na">rotation =</span> <span class="s">&quot;90&quot;</span><span class="nt">&gt;</span>
+                    <span class="nt">&lt;s:GradientEntry</span> <span class="na">color =</span> <span class="s">&quot;0x111111&quot;</span> <span class="na">ratio =</span> <span class="s">&quot;0.2&quot;</span> <span class="nt">/&gt;</span>
+                    <span class="nt">&lt;s:GradientEntry</span> <span class="na">color =</span> <span class="s">&quot;0x888888&quot;</span> <span class="na">ratio =</span> <span class="s">&quot;1&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;/s:LinearGradient&gt;</span>
+            <span class="nt">&lt;/s:fill&gt;</span>
+        <span class="nt">&lt;/s:Rect&gt;</span>
+
+        <span class="c">&lt;!-- must specify this for the host component --&gt;</span>
+        <span class="nt">&lt;s:Group</span> <span class="na">id =</span> <span class="s">&quot;contentGroup&quot;</span> <span class="na">left =</span> <span class="s">&quot;0&quot;</span> <span class="na">right =</span> <span class="s">&quot;0&quot;</span> <span class="na">top =</span> <span class="s">&quot;0&quot;</span> <span class="na">bottom =</span> <span class="s">&quot;0&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/s:Skin&gt;</span>
+</pre></div>
+</div>
+<p>Following is the content of the modified <strong>HelloWorld.mxml</strong> <code class="docutils literal notranslate"><span class="pre">filesrc/com/tutorialspoint/client/HelloWorld.mxml</span></code>.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;</span>
+    <span class="nt">&lt;s:Application</span> <span class="na">xmlns:fx =</span> <span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+    <span class="na">xmlns:s =</span> <span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+    <span class="na">xmlns:mx =</span> <span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span>
+    <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">minWidth =</span> <span class="s">&quot;500&quot;</span> <span class="na">minHeight =</span> <span class="s">&quot;500&quot;</span>
+    <span class="na">initialize =</span> <span class="s">&quot;application_initializeHandler(event)&quot;</span><span class="nt">&gt;</span>
+
+        <span class="nt">&lt;fx:Style</span> <span class="na">source =</span> <span class="s">&quot;/com/tutorialspoint/client/Style.css&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;fx:Script&gt;</span>
+            <span class="cp">&lt;![CDATA[</span>
+<span class="cp">                import com.tutorialspoint.skin.GradientBackgroundSkin;</span>
+<span class="cp">                import mx.controls.Alert;</span>
+<span class="cp">                import mx.events.FlexEvent;</span>
+<span class="cp">                import spark.skins.spark.BorderContainerSkin;</span>
+
+<span class="cp">                protected function btnClickMe_clickHandler(event:MouseEvent):void {</span>
+<span class="cp">                    Alert.show(&quot;Hello World!&quot;);</span>
+<span class="cp">                }</span>
+
+<span class="cp">                protected function application_initializeHandler(event:FlexEvent):void {</span>
+<span class="cp">                    lblHeader.text = &quot;My Hello World Application&quot;;</span>
+<span class="cp">                }</span>
+
+<span class="cp">                protected function gradientBackground_clickHandler(event:MouseEvent):void {</span>
+<span class="cp">                    mainContainer.setStyle(&quot;skinClass&quot;, GradientBackgroundSkin );</span>
+<span class="cp">                }</span>
+
+<span class="cp">                protected function standardBackground_clickHandler(event:MouseEvent):void {</span>
+<span class="cp">                    mainContainer.setStyle(&quot;skinClass&quot;, BorderContainerSkin );</span>
+<span class="cp">                }</span>
+<span class="cp">            ]]&gt;</span>
+        <span class="nt">&lt;/fx:Script&gt;</span>
+
+        <span class="nt">&lt;fx:Declarations&gt;</span>
+            <span class="nt">&lt;s:RadioButtonGroup</span> <span class="na">id =</span> <span class="s">&quot;selectorGroup&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;/fx:Declarations&gt;</span>
+
+        <span class="nt">&lt;s:BorderContainer</span> <span class="na">width =</span> <span class="s">&quot;500&quot;</span> <span class="na">height =</span> <span class="s">&quot;500&quot;</span> <span class="na">id =</span> <span class="s">&quot;mainContainer&quot;</span>
+            <span class="na">skinClass =</span> <span class="s">&quot;spark.skins.spark.BorderContainerSkin&quot;</span>
+            <span class="na">horizontalCenter =</span> <span class="s">&quot;0&quot;</span> <span class="na">verticalCenter =</span> <span class="s">&quot;0&quot;</span> <span class="na">cornerRadius =</span> <span class="s">&quot;10&quot;</span><span class="nt">&gt;</span>
+
+            <span class="nt">&lt;s:VGroup</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span> <span class="na">gap =</span> <span class="s">&quot;50&quot;</span> <span class="na">horizontalAlign =</span> <span class="s">&quot;center&quot;</span>
+                <span class="na">verticalAlign =</span> <span class="s">&quot;middle&quot;</span><span class="nt">&gt;</span>
+                <span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;lblHeader&quot;</span> <span class="na">fontSize =</span> <span class="s">&quot;40&quot;</span> <span class="na">color =</span> <span class="s">&quot;green&quot;</span>
+                    <span class="na">styleName =</span> <span class="s">&quot;heading&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;s:Button</span> <span class="na">label =</span> <span class="s">&quot;Click Me!&quot;</span> <span class="na">id =</span> <span class="s">&quot;btnClickMe&quot;</span>
+                    <span class="na">click =</span> <span class="s">&quot;btnClickMe_clickHandler(event)&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;s:RadioButton</span> <span class="na">color =</span> <span class="s">&quot;gray&quot;</span> <span class="na">fontWeight =</span> <span class="s">&quot;bold&quot;</span>
+                    <span class="na">group =</span> <span class="s">&quot;{selectorGroup}&quot;</span> <span class="na">label =</span> <span class="s">&quot;Standard Background&quot;</span>
+                    <span class="na">click =</span> <span class="s">&quot;standardBackground_clickHandler(event)&quot;</span> <span class="na">selected =</span> <span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+                <span class="nt">&lt;s:RadioButton</span> <span class="na">color =</span> <span class="s">&quot;gray&quot;</span> <span class="na">fontWeight =</span> <span class="s">&quot;bold&quot;</span>
+                    <span class="na">group =</span> <span class="s">&quot;{selectorGroup}&quot;</span> <span class="na">label =</span> <span class="s">&quot;Gradient Background&quot;</span>
+                    <span class="na">click =</span> <span class="s">&quot;gradientBackground_clickHandler(event)&quot;</span> <span class="nt">/&gt;</span>
+            <span class="nt">&lt;/s:VGroup&gt;</span>
+        <span class="nt">&lt;/s:BorderContainer&gt;</span>
+    <span class="nt">&lt;/s:Application&gt;</span>
+</pre></div>
+</div>
+<p>Once you are ready with all the changes done, let us compile and run the application in normal mode as we did in Flex - Create Application chapter. If everything is fine with your application, it will produce the following result: [ Try it online ]</p>
+<img alt="../_images/flex_skin_style1.jpg" src="../_images/flex_skin_style1.jpg" />
+<img alt="../_images/flex_skin_style2.jpg" src="../_images/flex_skin_style2.jpg" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../form/flex_data_binding.html" class="btn btn-neutral float-right" title="Flex - Data Binding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="flex_style_with_css.html" class="btn btn-neutral float-left" title="Flex - Style with CSS" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>

@@ -1,0 +1,450 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Flex - Applications &mdash; Adobe Flex dev documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Flex - Create Application" href="flex_create_application.html" />
+    <link rel="prev" title="System Requirement" href="../intro/environment.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Adobe Flex
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Welcome</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#application-build-process">Application Build Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#application-launch-process">Application Launch Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#flex-framework-libraries">Flex Framework Libraries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client-side-code">Client-side Code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#public-resources">Public Resources</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#helloworld-mxml">HelloWorld.mxml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#server-side-code">Server-side code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="flex_create_application.html">Flex - Create Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Adobe Flex</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Flex - Applications</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/application/flex_applications.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="flex-applications">
+<h1>Flex - Applications<a class="headerlink" href="#flex-applications" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>A Flex application consists of the following four important parts, out of which last part is optional but first three parts are mandatory.</p>
+<ul class="simple">
+<li><p>Flex Framework Libraries</p></li>
+<li><p>Client-side code</p></li>
+<li><p>Public Resources (HTML/JS/CSS)</p></li>
+<li><p>Server-side code</p></li>
+</ul>
+<p>Sample locations of different parts of a typical Flex application like HelloWord will be as shown below −</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 35%" />
+<col style="width: 65%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Location</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Project root</p></td>
+<td><p>HelloWorld/</p></td>
+</tr>
+<tr class="row-odd"><td><p>Flex Framework Libraries</p></td>
+<td><p>Build Path</p></td>
+</tr>
+<tr class="row-even"><td><p>Public resources</p></td>
+<td><p>html-template</p></td>
+</tr>
+<tr class="row-odd"><td><p>Client-side code</p></td>
+<td><p>table table-bordered/com/tutorialspoint/client</p></td>
+</tr>
+<tr class="row-even"><td><p>Server-side code</p></td>
+<td><p>table table-bordered/com/tutorialspoint/server</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="application-build-process">
+<h2>Application Build Process<a class="headerlink" href="#application-build-process" title="Permalink to this headline">¶</a></h2>
+<p>To start with, Flex application requires Flex framework libraries. Later, Flash Builder automatically adds the libraries to build path.
+When we build our code using Flash builder, Flash builder will do the following tasks −</p>
+<ul class="simple">
+<li><p>Compiles the source code to <cite>HelloWorld.swf</cite> file.</p></li>
+<li><p>Compiles a HelloWorld.html (a wrapper file for swf file) from a file index.template.html stored in html-template folder</p></li>
+<li><p>Copies <cite>HelloWorld.swf</cite> and <cite>HelloWorld.html</cite> files in target folder, bin-debug.</p></li>
+<li><p>Copies swfobject.js, a JavaScript code responsible to load swf file dynamically in HelloWorld.html in target folder, bin-debug</p></li>
+<li><p>Copies framework libraries in form of swf file named frameworks_xxx.swf in target folder, bin-debug</p></li>
+<li><p>Copies other flex modules (.swf files such as sparkskins_xxx.swf, textLayout_xxx.swf) in target folder.</p></li>
+</ul>
+</div>
+<div class="section" id="application-launch-process">
+<h2>Application Launch Process<a class="headerlink" href="#application-launch-process" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Open the HelloWorld.html file available in HelloWorldbin-debug folder in any web-browser.</p></li>
+<li><p><cite>HelloWorld.swf</cite> will load automatically and application will start running.</p></li>
+</ul>
+</div>
+<div class="section" id="flex-framework-libraries">
+<h2>Flex Framework Libraries<a class="headerlink" href="#flex-framework-libraries" title="Permalink to this headline">¶</a></h2>
+<p>Following is the brief detail about few important framework libraries. Please note that, Flex libraries are denoted using .swc notation</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 94%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sr.No</p></th>
+<th class="head"><p>Nodes &amp; Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">playerglobal.swc</span></code>
+This library is specific to FlashPlayer installed on your machine and contains native methods supported by flash player.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">textlayout.swc</span></code>
+This library supports the text layout related features.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">framework.swc</span></code>
+This is the flex framework library contains the core features of Flex.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">mx.swc</span></code>
+This library stores the definitions of mx UI controls.</p></td>
+</tr>
+<tr class="row-even"><td><p>5</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">charts.swc</span></code>
+This library supports the charting controls.</p></td>
+</tr>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">spark.swc</span></code>
+This library stores the definitions of spark UI controls.</p></td>
+</tr>
+<tr class="row-even"><td><p>7</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">sparkskins.swc</span></code>
+This library supports the skinning of spark UI controls.</p></td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="client-side-code">
+<h3>Client-side Code<a class="headerlink" href="#client-side-code" title="Permalink to this headline">¶</a></h3>
+<p>Flex application code can be written in <strong>MXML</strong> as well as <strong>ActionScript</strong>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sr.No</p></th>
+<th class="head"><p>Type &amp; Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p><strong>MXML</strong></p>
+<p>MXML is an XML markup language that we’ll use to lay out user interface components. MXML is compiled into ActionScript during build process.</p>
+</td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p><strong>ActionScript</strong></p>
+<p>ActionScript is an object-oriented procedural programming language and is based on the ECMAScript (ECMA-262) edition 4 draft language specification.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>In Flex, we can mix ActionScript and MXML, to do the following −</p>
+<ul class="simple">
+<li><p>Layout user interface components using MXML tags</p></li>
+<li><p>Use MXML to declaratively define nonvisual aspects of an application, such as access to data sources on the server</p></li>
+<li><p>Use MXML to create data bindings between user interface components and data sources on the server.</p></li>
+<li><p>Use ActionScript to define event listeners inside MXML event attributes.</p></li>
+<li><p>Add script blocks using the tag.</p></li>
+<li><p>Include external ActionScript files.</p></li>
+<li><p>Import ActionScript classes.</p></li>
+<li><p>Create ActionScript components.</p></li>
+</ul>
+</div>
+<div class="section" id="public-resources">
+<h3>Public Resources<a class="headerlink" href="#public-resources" title="Permalink to this headline">¶</a></h3>
+<p>These are help files referenced by Flex application, such as Host HTML page, CSS or images located under html-template folder. It contains following files −</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 5%" />
+<col style="width: 95%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Sr.No</p></th>
+<th class="head"><p>File Name &amp; Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>index.template.html
+Host HTML page, with place holders. Flash Builder uses this template to build actual page HelloWorld.html with HelloWorld.swf file.</p></td>
+</tr>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>playerProductInstall.swf
+This is a flash utility to install Flash Player in express mode.</p></td>
+</tr>
+<tr class="row-even"><td><p>3</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">swfobject.js</span></code>
+This is the JavaScript responsible to check version of flash player installed and to load HelloWorld.swf in HelloWorld.html page.</p></td>
+</tr>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">html-template/history</span></code>
+This folder contains resources for history management of the application.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="helloworld-mxml">
+<h3>HelloWorld.mxml<a class="headerlink" href="#helloworld-mxml" title="Permalink to this headline">¶</a></h3>
+<p>This is the actual MXML/AS (ActionScript) code written implementing the business logic of the application and that the Flex compiler translates into SWF file which will be executed by flash player in the browser.</p>
+<p>A sample HelloWorld Entry class will be as follows −</p>
+<div class="highlight-XML notranslate"><div class="highlight"><pre><span></span><span class="cp">&lt;?xml version = &quot;1.0&quot; encoding = &quot;utf-8&quot;?&gt;</span>
+<span class="nt">&lt;s:Application</span> <span class="na">xmlns:fx =</span> <span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+<span class="na">xmlns:s =</span> <span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+<span class="na">xmlns:mx =</span> <span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span>
+<span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span>
+<span class="na">minWidth =</span> <span class="s">&quot;500&quot;</span> <span class="na">minHeight =</span> <span class="s">&quot;500&quot;</span>
+<span class="na">initialize =</span> <span class="s">&quot;application_initializeHandler(event)&quot;</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;fx:Script&gt;</span>
+        <span class="cp">&lt;![CDATA[</span>
+<span class="cp">            import mx.controls.Alert;</span>
+<span class="cp">            import mx.events.FlexEvent;</span>
+<span class="cp">            protected function btnClickMe_clickHandler(event:MouseEvent):void {</span>
+<span class="cp">                Alert.show(&quot;Hello World!&quot;);</span>
+<span class="cp">            }</span>
+
+<span class="cp">            protected function application_initializeHandler(event:FlexEvent):void {</span>
+<span class="cp">                lblHeader.text = &quot;My Hello World Application&quot;;</span>
+<span class="cp">            }</span>
+<span class="cp">        ]]&gt;</span>
+    <span class="nt">&lt;/fx:Script&gt;</span>
+
+    <span class="nt">&lt;s:VGroup</span> <span class="na">horizontalAlign =</span> <span class="s">&quot;center&quot;</span> <span class="na">width =</span> <span class="s">&quot;100%&quot;</span> <span class="na">height =</span> <span class="s">&quot;100%&quot;</span>
+        <span class="na">paddingTop =</span> <span class="s">&quot;100&quot;</span> <span class="na">gap =</span> <span class="s">&quot;50&quot;</span><span class="nt">&gt;</span>
+        <span class="nt">&lt;s:Label</span> <span class="na">id =</span> <span class="s">&quot;lblHeader&quot;</span> <span class="na">fontSize =</span> <span class="s">&quot;40&quot;</span> <span class="na">color =</span> <span class="s">&quot;0x777777&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:Button</span> <span class="na">label =</span> <span class="s">&quot;Click Me!&quot;</span> <span class="na">id =</span> <span class="s">&quot;btnClickMe&quot;</span>
+            <span class="na">click =</span> <span class="s">&quot;btnClickMe_clickHandler(event)&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/s:VGroup&gt;</span>
+<span class="nt">&lt;/s:Application&gt;</span>
+</pre></div>
+</div>
+<p>Following table gives the description of all the tags used in the above code script.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Application</span></code> : Defines the Application container that is always the root tag of a Flex application.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Script</span></code> : Contains the business logic in ActionScript language.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VGroup</span></code>: Defines a Vertical Grouping Container which can contain Flex UI controls in vertical fashion.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Label</span></code>: Represents a Label control, a very simple user interface component that displays text.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Button</span></code>: Represents a Button control, which can be clicked to do some action.</p></li>
+</ul>
+</div>
+<div class="section" id="server-side-code">
+<h3>Server-side code<a class="headerlink" href="#server-side-code" title="Permalink to this headline">¶</a></h3>
+<p>This is the server side part of your application and it’s very much optional. If you are not doing any backend processing within your application, then you do not need this part but if there is some processing required at backend and your clientside application interacts with the server, then you will have to develop these components.</p>
+<p>In the next chapter, we will use all the above-mentioned concepts to create a HelloWorld application using Flash Builder.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="flex_create_application.html" class="btn btn-neutral float-right" title="Flex - Create Application" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../intro/environment.html" class="btn btn-neutral float-left" title="System Requirement" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019, QuanICT
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+  
+ 
+
+<script type="text/javascript">
+
+</script>
+
+
+</body>
+</html>
