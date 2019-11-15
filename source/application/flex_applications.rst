@@ -3,7 +3,11 @@ Flex - Applications
 
 .. toctree::
    :maxdepth: 2
-   :caption: Welcome
+   :caption: flex_application
+
+   flex_create_application
+   flex_life_cycle_phases
+   flex_deploy_application
 
 A Flex application consists of the following four important parts, out of which last part is optional but first three parts are mandatory.
 
@@ -82,10 +86,11 @@ Sr.No	Type & Description
 
         ActionScript is an object-oriented procedural programming language and is based on the ECMAScript (ECMA-262) edition 4 draft language specification.
 ======= ==================
+
 In Flex, we can mix ActionScript and MXML, to do the following −
 
 - Layout user interface components using MXML tags
-- Use MXML to declaratively define nonvisual aspects of an application, such as access to data sources on the server
+- Use MXML to declaratively define nonvisual aspects of an application,such as access to data sources on the server
 - Use MXML to create data bindings between user interface components and data sources on the server.
 - Use ActionScript to define event listeners inside MXML event attributes.
 - Add script blocks using the tag.

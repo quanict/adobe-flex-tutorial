@@ -1,8 +1,9 @@
 Flex - Style with Skin
 ======================
+
 .. toctree::
    :maxdepth: 2
-   :caption: Welcome
+   :caption: flex-style
 
 What is Skinning?
 -----------------

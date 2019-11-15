@@ -1,4 +1,4 @@
-The architecture of Flex and Java applications
+Architecture Java applications
 ==============================================
 
 .. toctree::

@@ -3,7 +3,7 @@ Flex - Create Application
 
 .. toctree::
    :maxdepth: 3
-   :caption: Welcome
+   :caption: flex_applications
 
 We'll use Flash Builder 4.5 to create Flex Applications. Let's start with a simple HelloWorld application.
 

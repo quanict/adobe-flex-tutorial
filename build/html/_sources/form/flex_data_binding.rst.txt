@@ -3,8 +3,8 @@ Flex - Data Binding
 
 .. toctree::
    :maxdepth: 2
-   :caption: Welcome
-   
+   :caption: flex_form
+
 What is Data Binding?
 ---------------------
 

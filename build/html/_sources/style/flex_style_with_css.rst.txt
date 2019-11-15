@@ -3,7 +3,7 @@ Flex - Style with CSS
 
 .. toctree::
    :maxdepth: 2
-   :caption: Welcome
+   :caption: flex-style
 
 Flex supports the use of CSS syntax and styles to apply to its UI controls in the same way as CSS to HTML components.
 

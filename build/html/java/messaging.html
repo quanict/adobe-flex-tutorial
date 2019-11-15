@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>&lt;no title&gt; &mdash; Adobe Flex dev documentation</title>
+  <title>Messaging &mdash; Adobe Flex dev documentation</title>
   
 
   
@@ -81,19 +81,28 @@
             
             
               <p class="caption"><span class="caption-text">Welcome</span></p>
-<ul>
+<ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">Architecture Java applications</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="client-server.html">Client/server architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Messaging</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#defining-destinations">Defining destinations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#selecting-a-channel">Selecting a channel</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#sending-and-receiving-messages">Sending and receiving messages</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="model-driven-development.html">Model driven development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="portal-integration.html">Portal integration</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -139,9 +148,9 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="architecture.html">The architecture of Flex and Java applications</a> &raquo;</li>
+          <li><a href="architecture.html">Architecture Java applications</a> &raquo;</li>
         
-      <li>&lt;no title&gt;</li>
+      <li>Messaging</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -160,7 +169,168 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  
+  <div class="section" id="messaging">
+<h1>Messaging<a class="headerlink" href="#messaging" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>To this point, the article has focused on creating applications that use a call-response model
+to make asynchronous calls to Java classes on the server.
+Using BlazeDS or LiveCycle Data Services, you can also build applications that use a publish-subscribe model
+to send messages between multiple Flex clients (through the server), push messages from the server to clients,
+and/or send messages to other JMS enabled messaging clients.
+A Flex application can <a class="reference external" href="http://help.adobe.com/en_US/LiveCycleDataServicesES/3.1/Developing/WSc3ff6d0ea77859461172e0811f00f6e70f-8000Update.html">send messages to a destination</a> on the server
+and any other clients subscribed to that same destination will receive those messages.</p>
+<p>A simple application using messaging is instant messaging where text is exchanged between clients.
+Messaging can also be used to create rich collaborative data applications where data changes made in one client are “instantly” seen by other clients viewing the same data. Server sending notifications to clients, clients receiving sport score updates, auction sites having access to real-time bids, applications for trading stocks, foreign exchange etc. are all examples of applications that can be developed using the messaging infrastructure.</p>
+<div class="section" id="defining-destinations">
+<h2>Defining destinations<a class="headerlink" href="#defining-destinations" title="Permalink to this headline">¶</a></h2>
+<p>Similar to how you configure remoting, you configure messaging by defining destinations in a server-side configuration file, in this case, messaging-config.xml. A messaging destination can be as simple as this:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;destination</span> <span class="na">id=</span><span class="s">&quot;chat&quot;</span><span class="nt">&gt;</span>
+</pre></div>
+</div>
+<p>in which case it uses the default adapter and channel defined in the messaging-config.xml file:</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;adapters&gt;</span>
+    <span class="nt">&lt;adapter-definition</span> <span class="na">id=</span><span class="s">&quot;actionscript&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.services.messaging.adapters.ActionScriptAdapter&quot;</span> <span class="na">default=</span><span class="s">&quot;true&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;adapter-definition</span> <span class="na">id=</span><span class="s">&quot;jms&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.services.messaging.adapters.JMSAdapter&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/adapters&gt;</span>
+<span class="nt">&lt;default-channels&gt;</span>
+    <span class="nt">&lt;channel</span> <span class="na">ref=</span><span class="s">&quot;my-rtmp&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;channel</span> <span class="na">ref=</span><span class="s">&quot;my-streaming-amf&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/default-channels&gt;</span>
+</pre></div>
+</div>
+<p>The first adapter defined, actionscript, is the default adapter and is used to exchange messages between Flex clients. The jms adapter can be used instead to bridge to JMS destinations. The default channel is my-rtmp, a real-time streaming channel with failover to a streaming AMF channel (both defined in the services-config.xml file). Channels are discussed in more detail in the next section, Selecting a channel.</p>
+<p>You can also specify additional properties when defining a destination,
+including network and server properties.
+In the following destination,
+the chat destination is configured to use the <strong>my-polling-amf</strong> channel,
+users are never unsubscribed even with no activity,
+messages are kept on the server indefinitely until there are 1000 messages at which time the oldest is replaced,
+and only clients that have been authenticated and authorized against the trusted security constraint defined in the <cite>services-config.xml</cite> file
+(see the <a class="reference external" href="https://www.adobe.com/devnet/flex/articles/flex_java_architecture.html#articlecontentAdobe_numberedheader_1">Security section</a>) can publish or receive messages.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;destination</span> <span class="na">id=</span><span class="s">&quot;chat&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;channels&gt;</span>
+            <span class="nt">&lt;channel</span> <span class="na">ref=</span><span class="s">&quot;my-polling-amf&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/channels&gt;</span>
+        <span class="nt">&lt;network&gt;</span>
+            <span class="nt">&lt;session-timeout&gt;</span>0<span class="nt">&lt;/session-timeout&gt;</span>
+        <span class="nt">&lt;/network&gt;</span>
+        <span class="nt">&lt;server&gt;</span>
+            <span class="nt">&lt;max-cache-size&gt;</span>1000<span class="nt">&lt;/max-cache-size&gt;</span>
+            <span class="nt">&lt;message-time-to-live&gt;</span>0<span class="nt">&lt;/message-time-to-live&gt;</span>
+            <span class="nt">&lt;durable&gt;</span>false<span class="nt">&lt;/durable&gt;</span>
+            <span class="nt">&lt;send-security-constraint</span> <span class="na">ref=</span><span class="s">&quot;trusted&quot;</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;subscribe-security-constraint</span> <span class="na">ref=</span><span class="s">&quot;trusted&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;/server&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/destination&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="selecting-a-channel">
+<h2>Selecting a channel<a class="headerlink" href="#selecting-a-channel" title="Permalink to this headline">¶</a></h2>
+<p>When defining a destination, you specify the channel to be used for the communication between the client and server including the protocol, the port, and the endpoint. Channels are defined in the services-config.xml file. For remoting, you usually use the my-amf or my-secure-amf channel. For messaging, there is larger number of channels to select from, including those that use polling or streaming, servlets or sockets, and HTTP or RTMP.</p>
+<p>Polling channels support polling the server on some interval or on some event. The <strong>my-polling-amf</strong> channel polls the server every 8 seconds for new messages.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;channel-definition</span> <span class="na">id=</span><span class="s">&quot;my-polling-amf&quot;</span> <span class="na">class=</span><span class="s">&quot;mx.messaging.channels.AMFChannel&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;endpoint</span> <span class="na">url=</span><span class="s">&quot;http://{server.name}:{server.port}/{context.root}/messagebroker/amfpolling&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.endpoints.AMFEndpoint&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;polling-enabled&gt;</span>true<span class="nt">&lt;/polling-enabled&gt;</span>
+        <span class="nt">&lt;polling-interval-seconds&gt;</span>8<span class="nt">&lt;/polling-interval-seconds&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/channel-definition&gt;</span>
+</pre></div>
+</div>
+<p>To more closely mimic a real-time connection, you can use long polling. The <strong>my-amf-longpoll</strong> channel is configured for long polling.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;channel-definition</span> <span class="na">id=</span><span class="s">&quot;my-amf-longpoll&quot;</span> <span class="na">class=</span><span class="s">&quot;mx.messaging.channels.AMFChannel&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;endpoint</span> <span class="na">url=</span><span class="s">&quot;http://{server.name}:{server.port}/{context.root}/messagebroker/myamflongpoll&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.endpoints.AMFEndpoint&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;polling-enabled&gt;</span>true<span class="nt">&lt;/polling-enabled&gt;</span>
+        <span class="nt">&lt;polling-interval-seconds&gt;</span>0<span class="nt">&lt;/polling-interval-seconds&gt;</span>
+        <span class="nt">&lt;wait-interval-seconds&gt;</span>60<span class="nt">&lt;/wait-interval-seconds&gt;</span>
+        <span class="nt">&lt;client-wait-interval-seconds&gt;</span>3<span class="nt">&lt;/client-wait-interval-seconds&gt;</span>
+        <span class="nt">&lt;max-waiting-poll-requests&gt;</span>100<span class="nt">&lt;/max-waiting-poll-requests &gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/channel-definition&gt;</span>
+</pre></div>
+</div>
+<p>When this channel is used, the client polls the server; the server poll response thread waits 60 seconds for new messages to arrive if there are no new messages on the server and then returns to the client; after receiving the poll response, the client polls again after 3 seconds; the process is repeated. The server is set to allow 100 simultaneous server poll response threads in a wait state; if exceeded, the server does not wait for new messages before returning a response. Typical application servers might have around 200 HTTP request threads available, so you need to make sure you set the maximum allowable number of polling threads to a smaller number and still leave enough threads to handle other HTTP requests.</p>
+<p>With servers and proxy servers that support HTTP 1.1, an HTTP streaming channel can be used. A persistent connection is established between the client and the server over which server messages are pushed to the client. HTTP connections can’t handle traffic in both directions, so separate, short-lived threads must be used for any other server requests. Network latency is minimized compared to long-polling because connections don’t have to be continually closed and reopened.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;channel-definition</span> <span class="na">id=</span><span class="s">&quot;my-streaming-amf&quot;</span> <span class="na">class=</span><span class="s">&quot;mx.messaging.channels.StreamingAMFChannel&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;endpoint</span> <span class="na">url=</span><span class="s">&quot;http://{server.name}:{server.port}/{context.root}/messagebroker/streamingamf&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.endpoints.StreamingAMFEndpoint&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/channel-definition&gt;</span>
+</pre></div>
+</div>
+<p>Using HTTP long-polling and streaming the number of simultaneous users that can be connected to a destination is limited by the available number of server HTTP threads. For applications that will have larger numbers of simultaneous users, messages can be pushed using sockets instead of HTTP threads. LiveCycle Data Services includes a NIO-based socket server and has additional channels available for messaging that are not available with BlazeDS. These channels, defined in the services-config.xml file, all contain “nio” in their names. NIO stands for Java New Input/Output and is a collection of Java APIs for I/O operations.</p>
+<p>If you are using LiveCycle Data Services you should use the NIO channels over the servlet based channels because they scale better,
+handling thousands of simultaneous users instead of around a hundred.
+There are NIO equivalents for each of the AMF polling, long polling,
+and streaming channels just discussed (<strong>my-nio-amf-poll</strong>, <strong>my-nio-amf-longpoll</strong>, <strong>my-nioamf-stream</strong>).
+These channels are still using HTTP so in the latter two cases, separate threads are still required for client-server requests and the persistent (or waiting) threads used for the server-to-client updates.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;channel-definition</span> <span class="na">id=</span><span class="s">&quot;my-nio-amf-longpoll&quot;</span> <span class="na">class=</span><span class="s">&quot;mx.messaging.channels.AMFChannel&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;endpoint</span> <span class="na">url=</span><span class="s">&quot;http://{server.name}:2080/nioamflongpoll&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.endpoints.NIOAMFEndpoint&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;server</span> <span class="na">ref=</span><span class="s">&quot;my-nio-server&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;polling-enabled&gt;</span>true<span class="nt">&lt;/polling-enabled&gt;</span>
+        <span class="nt">&lt;polling-interval-millis&gt;</span>0<span class="nt">&lt;/polling-interval-millis&gt;</span>
+        <span class="nt">&lt;wait-interval-millis&gt;</span>-1<span class="nt">&lt;/wait-interval-millis&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/channel-definition&gt;</span>
+</pre></div>
+</div>
+<p>With LiveCycle Data Services you can choose channels that use the RTMP protocol instead of HTTP.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;channel-definition</span> <span class="na">id=</span><span class="s">&quot;my-rtmp&quot;</span> <span class="na">class=</span><span class="s">&quot;mx.messaging.channels.RTMPChannel&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;endpoint</span> <span class="na">url=</span><span class="s">&quot;rtmp://{server.name}:2037&quot;</span> <span class="na">class=</span><span class="s">&quot;flex.messaging.endpoints.RTMPEndpoint&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;properties&gt;</span>
+        <span class="nt">&lt;idle-timeout-minutes&gt;</span>20<span class="nt">&lt;/idle-timeout-minutes&gt;</span>
+    <span class="nt">&lt;/properties&gt;</span>
+<span class="nt">&lt;/channel-definition&gt;</span>
+</pre></div>
+</div>
+<p>RTMP, the Real-Time Messaging Protocol, was developed by Adobe for high-performance transmission of audio, video, and data between Adobe Flash Platform technologies (like Adobe Flash Player and Adobe AIR) and is now available as an open specification. RTMP provides a full duplex socket connection so that a single connection can be used for all communication between the client and the server, including all RPC and messaging. Another benefit of RTMP is that when a client connection is closed, the endpoint is immediately notified (so the application can instantly respond) unlike when using the HTTP protocol where endpoints do not receive notification until the HTTP session on the server times out. Because RTMP generally uses a non-standard port, though, it is often blocked by client firewalls. In this case, the channel automatically attempts to tunnel over HTTP.</p>
+<p>As a general recommendation, if you are using LiveCycle Data Services, use RTMP with failover to NIO-based long-polling. If using BlazeDS, use AMF long-polling or AMF streaming with failover to long-polling.</p>
+</div>
+<div class="section" id="sending-and-receiving-messages">
+<h2>Sending and receiving messages<a class="headerlink" href="#sending-and-receiving-messages" title="Permalink to this headline">¶</a></h2>
+<p>To send messages from a Flex application you use the Producer API and to receive messages, the Consumer API. A basic application sends, receives, and displays messages is shown here.</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;s:Application</span> <span class="na">xmlns:fx=</span><span class="s">&quot;http://ns.adobe.com/mxml/2009&quot;</span>
+    <span class="na">xmlns:s=</span><span class="s">&quot;library://ns.adobe.com/flex/spark&quot;</span>
+    <span class="na">xmlns:mx=</span><span class="s">&quot;library://ns.adobe.com/flex/mx&quot;</span>
+    <span class="na">creationComplete=</span><span class="s">&quot;application1_creationCompleteHandler()&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;fx:Script&gt;</span>
+    <span class="cp">&lt;![CDATA[</span>
+<span class="cp">        import mx.messaging.events.MessageEvent;</span>
+<span class="cp">        import mx.messaging.messages.AsyncMessage;</span>
+<span class="cp">        protected function application1_creationCompleteHandler():void{</span>
+<span class="cp">            consumer.subscribe();</span>
+<span class="cp">        }</span>
+<span class="cp">        protected function button1_clickHandler(event:MouseEvent):void{</span>
+<span class="cp">        var message:AsyncMessage=new AsyncMessage();</span>
+<span class="cp">        message.headers.username=username.text;</span>
+<span class="cp">        message.body=msg.text;</span>
+<span class="cp">        producer.send(message);</span>
+<span class="cp">        msg.text=&quot;&quot;;</span>
+<span class="cp">        }</span>
+<span class="cp">        protected function consumer_messageHandler(event:MessageEvent):void{</span>
+<span class="cp">        messageDisplay.text+=event.message.headers.username+&quot;: &quot;+event.message.body+&quot;\n&quot;;</span>
+<span class="cp">        }</span>
+<span class="cp">    ]]&gt;</span>
+    <span class="nt">&lt;/fx:Script&gt;</span>
+    <span class="nt">&lt;fx:Declarations&gt;</span>
+        <span class="nt">&lt;s:Producer</span> <span class="na">id=</span><span class="s">&quot;producer&quot;</span> <span class="na">destination=</span><span class="s">&quot;chat&quot;</span><span class="nt">/&gt;</span>
+        <span class="nt">&lt;s:Consumer</span> <span class="na">id=</span><span class="s">&quot;consumer&quot;</span> <span class="na">destination=</span><span class="s">&quot;chat&quot;</span> <span class="na">message=</span><span class="s">&quot;consumer_messageHandler(event)&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;/fx:Declarations&gt;</span>
+    <span class="nt">&lt;s:TextArea</span> <span class="na">id=</span><span class="s">&quot;messageDisplay&quot;</span> <span class="na">width=</span><span class="s">&quot;400&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;s:TextInput</span> <span class="na">id=</span><span class="s">&quot;username&quot;</span> <span class="na">x=</span><span class="s">&quot;0&quot;</span> <span class="na">y=</span><span class="s">&quot;160&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;s:TextInput</span> <span class="na">id=</span><span class="s">&quot;msg&quot;</span> <span class="na">x=</span><span class="s">&quot;136&quot;</span> <span class="na">y=</span><span class="s">&quot;160&quot;</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;s:Button</span> <span class="na">label=</span><span class="s">&quot;Send&quot;</span> <span class="na">click=</span><span class="s">&quot;button1_clickHandler(event)&quot;</span> <span class="na">x=</span><span class="s">&quot;272&quot;</span> <span class="na">y=</span><span class="s">&quot;160&quot;</span><span class="nt">/&gt;</span>
+<span class="nt">&lt;/s:Application&gt;</span>
+</pre></div>
+</div>
+<p>For more information about using the messaging service, see the BlazeDS and LCDS documentation.</p>
+</div>
+</div>
+
 
            </div>
            

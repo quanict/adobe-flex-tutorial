@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>The architecture of Flex and Java applications &mdash; Adobe Flex dev documentation</title>
+  <title>Architecture Java applications &mdash; Adobe Flex dev documentation</title>
   
 
   
@@ -85,18 +85,14 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">The architecture of Flex and Java applications</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Architecture Java applications</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="client-server.html">Client/server architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html">Messaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-driven-development.html">Model driven development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="portal-integration.html">Portal integration</a></li>
@@ -147,7 +143,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>The architecture of Flex and Java applications</li>
+      <li>Architecture Java applications</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -166,8 +162,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="the-architecture-of-flex-and-java-applications">
-<h1>The architecture of Flex and Java applications<a class="headerlink" href="#the-architecture-of-flex-and-java-applications" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="architecture-java-applications">
+<h1>Architecture Java applications<a class="headerlink" href="#architecture-java-applications" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="client-server.html">Client/server architecture</a><ul>
@@ -177,10 +173,30 @@
 <li class="toctree-l1"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a><ul class="simple">
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a></li>
-<li class="toctree-l1"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="model-driven-development.html">Model driven development</a></li>
-<li class="toctree-l1"><a class="reference internal" href="portal-integration.html">Portal integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="security.html">Security</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="security.html#modifying-services-config-xml">Modifying services-config.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#modifying-remoting-config-xml">Modifying remoting-config.xml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html#adding-code-to-the-flex-application">Adding code to the Flex application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="messaging.html">Messaging</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html#defining-destinations">Defining destinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html#selecting-a-channel">Selecting a channel</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html#sending-and-receiving-messages">Sending and receiving messages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html#defining-destinations">Defining destinations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html#creating-a-managed-data-application">Creating a managed data application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="model-driven-development.html">Model driven development</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="model-driven-development.html#generating-client-side-code-using-flash-builder">Generating client-side code using Flash Builder</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="portal-integration.html">Portal integration</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </div>
 <p>The Java EE Platform is the leading enterprise web server.

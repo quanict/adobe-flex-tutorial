@@ -84,21 +84,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">Architecture Java applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="client-server.html">Client/server architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html">Messaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-driven-development.html">Model driven development</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Portal integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Portal integration</a><ul class="simple">
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -146,7 +144,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="architecture.html">The architecture of Flex and Java applications</a> &raquo;</li>
+          <li><a href="architecture.html">Architecture Java applications</a> &raquo;</li>
         
       <li>Portal integration</li>
     
@@ -169,6 +167,27 @@
             
   <div class="section" id="portal-integration">
 <h1>Portal integration<a class="headerlink" href="#portal-integration" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Using LiveCycle Data Services, you can deploy Flex applications as local portlets on portal servers that implement the JSR 168 portlet specification or that support Web Services for Remote Portlets (WSRP); this includes JBoss Portal, BEA WebLogic Portal, and IBM WebSphere Portal. The Flex application can be part of a LiveCycle Data Services application (for example, using the Remoting, Messaging, and/or Data Management services) but it does not have to be.</p>
+<p>To enable a Flex application to be deployed as a portlet, you need to copy and customize some files included in the LiveCycle Data Services /lcds/resources/wsrp/ directory and then follow the portal server’s specific steps to set up the portlet.</p>
+<img alt="../_images/1282643981199.jpg" src="../_images/1282643981199.jpg" />
+<p><strong>Figure 13</strong>.
+The required LiveCycle Data Services files for deployment on portals.</p>
+<p>You need to copy the flex-portal.jar file to your web application’s /WEB-INF/lib/ directory. (If LiveCycle Data Services is not being used on the server, the flex-messaging-common jar file must also be copied to there. ) The flex-portal.jar file contains a GenericFlexPortlet class that handles all WSRP requests and returns appropriate HTML depending upon whether the view, edit, or portlet mode is requested. The LiveCycle Data Services wsrp-jsp folder contains three JSP pages used for the view, edit, and help portlet view modes. You need to copy this wsrp-jsp folder to the root of your web application and customize these pages for your application. When a specific view of the portlet is requested, the GenericFlexPortlet class delivers one of these JSP pages. The portlet-view.jsp contains HTML and JavaScript for loading the application SWF and checking for the necessary version of Flash Player.</p>
+<p>Requests for a portlet specify whether the portlet should be maximized, minimized, or normal. The value for this requested window state is passed to the Flex application as a flashvar, and can be accessed as FlexGlobals.topLevelApplication.parameters.PORTLET_WS allowing you to customize the application for the specific window state requested. If a minimized portlet is requested, the GenericFlexPortlet does not return a SWF because the user would not be able to interact with it anyways.</p>
+<p>Where to go from here</p>
+<p>This article discussed the architecture of Flex and Java applications. For additional information, use the links contained in the article and the following resources:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.adobe.com/devnet/flex.html">Adobe Flex Developer Center</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/devnet/flex/flex_java.html">Flex and Java on the Adobe Developer Center</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/devnet/flex/architecture.html">Flex Architecture on the Adobe Developer Center</a></p></li>
+<li><p><a class="reference external" href="https://www.adobe.com/devnet/livecycle/dataservices.html">Adobe Data Services Developer Center</a></p></li>
+<li><p><a class="reference external" href="http://opensource.adobe.com/wiki/display/blazeds/BlazeDS">BlazeDS on Adobe Open Source</a></p></li>
+<li><p><a class="reference external" href="http://opensource.adobe.com/wiki/display/blazeds/Developer+Documentation">BlazeDS documentation</a></p></li>
+<li><p><a class="reference external" href="http://help.adobe.com/en_US/LiveCycleDataServicesES/3.0/Developing/WSC04AFC0E-5BF5-4c2f-8A32-BEDE16E9DF95.html">Adobe LiveCycle Data Services ES2 documentation</a></p></li>
+<li><p><a class="reference external" href="http://help.adobe.com/en_US/flex/using/index.html">Adobe Flex 4 documentation</a></p></li>
+</ul>
 </div>
 
 

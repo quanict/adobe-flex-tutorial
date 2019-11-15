@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Flex - Basic Controls &mdash; Adobe Flex dev documentation</title>
+  <title>Flex - Style &mdash; Adobe Flex dev documentation</title>
   
 
   
@@ -35,8 +35,8 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Flex - Image Control" href="../control/flex_image_control.html" />
-    <link rel="prev" title="Flex - Data Binding" href="flex_data_binding.html" /> 
+    <link rel="next" title="Flex - Data Binding" href="../form/flex_data_binding.html" />
+    <link rel="prev" title="Flex - Applications" href="../application/flex_applications.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -85,13 +85,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
-<li class="toctree-l1"><a class="reference internal" href="flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Basic Controls</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#flex-ui-elements">Flex UI Elements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#basic-controls">Basic Controls</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Flex - Style</a><ul class="simple">
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../java/architecture.html">The architecture of Flex and Java applications</a></li>
 </ul>
@@ -139,13 +137,13 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-      <li>Flex - Basic Controls</li>
+      <li>Flex - Style</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/form/flex_basic_controls.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/style/flex_style.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,38 +156,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="flex-basic-controls">
-<h1>Flex - Basic Controls<a class="headerlink" href="#flex-basic-controls" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="flex-style">
+<h1>Flex - Style<a class="headerlink" href="#flex-style" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
-<p>Every user interface considers the following three main aspects −</p>
-<ul class="simple">
-<li><p><strong>UI Elements</strong> − These are the core visual elements the user eventually sees and interacts with. Flex provides a huge list of widely used and common elements varying from basic to complex which we will cover in this tutorial.</p></li>
-<li><p><strong>Layouts</strong> − They define how UI elements should be organized on the screen and provide a final look and feel to the GUI (Graphical User Interface). This part will be covered in Layout chapter.</p></li>
-<li><p><strong>Behavior</strong> − These events occur when the user interacts with UI elements. This part will be covered in Event Handling chapter.</p></li>
-</ul>
-<div class="section" id="flex-ui-elements">
-<h2>Flex UI Elements<a class="headerlink" href="#flex-ui-elements" title="Permalink to this headline">¶</a></h2>
-<p>The Flex UI library provides classes in a well-defined class hierarchy to create complex web-based user interfaces. All classes in this component hierarchy have been derived from the <code class="docutils literal notranslate"><span class="pre">EventDispatcher</span></code> base class as shown below −</p>
-<img alt="../_images/flex_components.jpg" src="../_images/flex_components.jpg" />
-<p>Every Basic UI control inherits properties from UI Component class which in turn inherits properties from EventDispatcher and other top level classes.</p>
-<p><a class="reference external" href="flex_eventdispatcher_class">Flex EventDispatcher Class</a>
-The EventDispatcher class is the base class for all classes that can dispatch events. The EventDispatcher class allows any object on the display list to be an event target and as such, to use the methods of the IEventDispatcher interface.</p>
-<p><a class="reference external" href="flex_uicomponent_class">Flex UIComponent</a>
-The UIComponent class is the base class for all visual components, both interactive and non-interactive.</p>
-</div>
-<div class="section" id="basic-controls">
-<h2>Basic Controls<a class="headerlink" href="#basic-controls" title="Permalink to this headline">¶</a></h2>
-<p>Following are the few important Basic Controls −</p>
-<p>1. <a class="reference external" href="../control/label">Label</a>
-Label is a low-level UIComponent that can render one or more lines of uniformly-formatted text.</p>
-<p>2. <a class="reference external" href="../control/text">Text</a>
-The Text control lets you display HTML content as well as normal text in your application.</p>
-<p>3. <a class="reference external" href="../control/flex_image_control.html">Image</a>
-The Image control lets you import JPEG, PNG, GIF, and SWF files at runtime.</p>
-<p>4. <a class="reference external" href="../control/linkbutton">LinkButton</a>
-The LinkButton control is a borderless Button control whose contents are highlighted when a user moves the mouse over it.</p>
-</div>
+<p>Flex supports the use of CSS syntax and styles to apply to its UI controls
+in the same way as CSS to HTML components.</p>
 </div>
 
 
@@ -200,10 +172,10 @@ The LinkButton control is a borderless Button control whose contents are highlig
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../control/flex_image_control.html" class="btn btn-neutral float-right" title="Flex - Image Control" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../form/flex_data_binding.html" class="btn btn-neutral float-right" title="Flex - Data Binding" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="flex_data_binding.html" class="btn btn-neutral float-left" title="Flex - Data Binding" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../application/flex_applications.html" class="btn btn-neutral float-left" title="Flex - Applications" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

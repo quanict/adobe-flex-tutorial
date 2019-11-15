@@ -85,20 +85,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">Architecture Java applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="client-server.html">Client/server architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
 <li class="toctree-l2"><a class="reference internal" href="security.html">Security</a></li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html">Messaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Model driven development</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Model driven development</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#generating-client-side-code-using-flash-builder">Generating client-side code using Flash Builder</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="portal-integration.html">Portal integration</a></li>
 </ul>
 </li>
@@ -147,7 +146,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="architecture.html">The architecture of Flex and Java applications</a> &raquo;</li>
+          <li><a href="architecture.html">Architecture Java applications</a> &raquo;</li>
         
       <li>Model driven development</li>
     
@@ -170,6 +169,45 @@
             
   <div class="section" id="model-driven-development">
 <h1>Model driven development<a class="headerlink" href="#model-driven-development" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>In previous sections of this article, you learned to use the Remoting and Messaging services of
+BlazeDS and LCDS and the Data Management service of LCDS to build data-centric applications.
+You can build these types of applications even faster using the Adobe application modeling technology (code named Fiber),
+a set of technologies that together enable model driven development for Flex applications,
+which can be used to generate both client and server-side code.</p>
+<div class="section" id="generating-client-side-code-using-flash-builder">
+<h2>Generating client-side code using Flash Builder<a class="headerlink" href="#generating-client-side-code-using-flash-builder" title="Permalink to this headline">¶</a></h2>
+<p>Instead of using the RemoteObject class (or other RPC classes) to make calls to server-side classes, you can use Flash Builder to create ActionScript service wrapper classes and use these classes. The RPC service wrapper classes have public methods with the same names as the corresponding server-side classes making development and debugging much simpler.</p>
+<p>In order to generate client-side code,
+RDS access must be enabled on the server so Flash Builder can introspect server-side Java classes and configuration files.
+To enable RDS access, you need to add and/or uncomment a mapping for the BlazeDS 4
+or LiveCycle Data Services 3 RDSDispatchServlet in the web application’s web.xml file
+and disable security by setting the <strong>useAppserverSecurity</strong> parameter to false (or alternatively, set up and enable security).</p>
+<div class="highlight-xml notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;servlet&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>RDSDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;display-name&gt;</span>RDSDispatchServlet<span class="nt">&lt;/display-name&gt;</span>
+    <span class="nt">&lt;servlet-class&gt;</span>flex.rds.server.servlet.FrontEndServlet<span class="nt">&lt;/servlet-class&gt;</span>
+    <span class="nt">&lt;init-param&gt;</span>
+        <span class="nt">&lt;param-name&gt;</span>useAppserverSecurity<span class="nt">&lt;/param-name&gt;</span>
+        <span class="nt">&lt;param-value&gt;</span>false<span class="nt">&lt;/param-value&gt;</span>
+    <span class="nt">&lt;/init-param&gt;</span>
+    <span class="nt">&lt;load-on-startup&gt;</span>10<span class="nt">&lt;/load-on-startup&gt;</span>
+<span class="nt">&lt;/servlet&gt;</span>
+
+<span class="nt">&lt;servlet-mapping</span> <span class="na">id=</span><span class="s">&quot;RDS_DISPATCH_MAPPING&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;servlet-name&gt;</span>RDSDispatchServlet<span class="nt">&lt;/servlet-name&gt;</span>
+    <span class="nt">&lt;url-pattern&gt;</span>/CFIDE/main/ide.cfm<span class="nt">&lt;/url-pattern&gt;</span>
+<span class="nt">&lt;/servlet-mapping&gt;</span>
+</pre></div>
+</div>
+<p>Once RDS is enabled for the server,
+you can generate ActionScript service wrappers in Flash Builder using the Data menu (see Figure 5).</p>
+<img alt="../_images/1282643454586.jpg" src="../_images/1282643454586.jpg" />
+<p><strong>Figure 5</strong>. The Flash Builder Data menu for creating client-side code.</p>
+<p>When selecting Connect to BlazeDS or Connect to LCDS, you will get a dialog box displaying all the server-side destinations defined in the configuration files (see Figure 6).</p>
+<p><strong>Figure 6</strong>. The dialog box for selecting service destinations.</p>
+</div>
 </div>
 
 

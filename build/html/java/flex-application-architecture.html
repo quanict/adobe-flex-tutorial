@@ -83,15 +83,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="architecture.html">Architecture Java applications</a></li>
 </ul>
 
             
@@ -158,6 +153,94 @@
             
   <div class="section" id="flex-application-architecture">
 <h1>Flex application architecture<a class="headerlink" href="#flex-application-architecture" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>Now that you’ve learned to set up Flash Remoting on the server-side and define a RemoteObject instance in Flex, let’s take a look at how you build an application to use this object.</p>
+<div class="section" id="using-events">
+<h2>Using events<a class="headerlink" href="#using-events" title="Permalink to this headline">¶</a></h2>
+<p>A typical Flex application consists of MXML code to define the user interface and ActionScript code for the logic. Just as for JavaScript and the browser DOM objects, the two are wired together using events and event handlers. To use a RemoteObject in an application, you define the instance, invoke a method of the server-side remoting destination, specify callback functions for the result and fault events, and inside those, do something with the data returned from the server.</p>
+<p>Here is a simple application where employee data is retrieved from a database and displayed in a Flex DataGrid component. After the application is initialized, the getEmployees() method of the employeeService destination defined in the remoting-config.xml file on the server is called, and if data is successfully returned from the server, the variable employees is populated and if the request fails for any reason, a message is displayed in an Alert box. Data binding is used to bind the employees variable to the dataProvider property of the DataGrid.</p>
+<p>When using a RemoteObject, you can define <cite>result and fault handlers on the service level</cite>:</p>
+<p>on the method level:
+.. code::xml</p>
+<blockquote>
+<div><dl class="simple">
+<dt>&lt;s:RemoteObject id=”employeeSvc” destination=”employeeService”&gt;</dt><dd><p>&lt;s:method name=”getEmployees” result=”onResult(event)” fault=”onFault(event)”/&gt;
+&lt;s:method name=”getDepartments” result=”onResult2(event)” fault=”onFault2(event)”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/RemoteObject&gt;</p>
+</div></blockquote>
+<p>or on a per-call basis:
+.. code::xml</p>
+<blockquote>
+<div><p>&lt;s:Application xmlns:fx=http://ns.adobe.com/mxml/2009”
+xmlns:s=”library://ns.adobe.com/flex/spark”
+xmlns:mx=”library://ns.adobe.com/flex/mx”
+initialize=”getEmployeesResult.token=employeeSvc.getEmployees()”&gt;</p>
+<blockquote>
+<div><dl>
+<dt>&lt;fx:Declarations&gt;</dt><dd><p>&lt;s:RemoteObject id=”employeeSvc” destination=”employeeService”/&gt;
+&lt;s:CallResponder id=”getEmployeesResult” result=”onResult(event)”</p>
+<blockquote>
+<div><p>fault=”onFault(event)”/&gt;</p>
+</div></blockquote>
+</dd>
+</dl>
+<p>&lt;/fx:Declarations&gt;</p>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="using-data-binding">
+<h2>Using data binding<a class="headerlink" href="#using-data-binding" title="Permalink to this headline">¶</a></h2>
+<p>Data binding is a powerful part of the Flex framework that lets you update the user interface when data changes without you having to explicitly register and write the event listeners to do this. In the previous application code, the [Bindable] tag in front of the employees variable definition is a compiler directive; when the file is compiled, ActionScript code is automatically generated so that an event is broadcast whenever the employees variable changes.</p>
+<p>The curly braces in the assignment of the DataGrid’s dataProvider property actually generates the code to listen for changes to the employees variable and when it changes, to update the DataGrid view accordingly.</p>
+<p>In this application, employees is initially null and no data is displayed in the DataGrid but as soon as the data is successfully retrieved form the server and employees is populated, the DataGrid is updated to display the employee data.</p>
+</div>
+<div class="section" id="using-view-states">
+<h2>Using view states<a class="headerlink" href="#using-view-states" title="Permalink to this headline">¶</a></h2>
+<p>To make more extreme changes to the user interface dynamically at runtime,
+for instance to add, remove, move, or modify components,
+you use Flex <a class="reference external" href="http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-7fb4.html">view states</a>.
+For every Flex view or component, you can define multiple states and then for every object in that view,
+you can define what state(s) it should be included in and what it should look like and how it should behave in that state.
+You switch between states by setting the component’s currentState property to the name of one of the defined states.</p>
+</div>
+<div class="section" id="using-mxml-components">
+<h2>Using MXML components<a class="headerlink" href="#using-mxml-components" title="Permalink to this headline">¶</a></h2>
+<p>As your application gets larger, you need to break up your logic into packages of ActionScript classes and your views into separate MXML files (called MXML components). Each MXML component extends an existing component and can only be included in an application, but not run on its own. To use a component in MXML, you instantiate an instance of that component (its class name is the same as its file name) and include the proper namespace so the compiler can locate it.</p>
+<p>Here is the code for a MXML component, Masterview, saved as MasterView.mxml in the com.adobe.samples.views package.</p>
+<p>Here is the code for an application that instantiates and uses that custom MasterView component.</p>
+</div>
+<div class="section" id="broadcasting-events">
+<h2>Broadcasting events<a class="headerlink" href="#broadcasting-events" title="Permalink to this headline">¶</a></h2>
+<p>In order to build loosely-coupled components,
+you need to define a public API for the component (its public members)
+and/or define and broadcast custom events as shown in the MasterView code example above.
+The [<strong>Event</strong>] metadata tag is used to define the event as part of the component’s API and specify what type of event object it broadcasts.</p>
+<p>When some event occurs in the component (in this example, a DropDownList <strong>change</strong> event),
+the component creates an instance of the type of event object specified in the metadata and broadcasts it.</p>
+<p>The code that instantiates this custom component can now register to listen for this custom event and register and event handler.</p>
+<p>Loosely-coupled components like this that define and broadcast custom events are the core building blocks for Flex applications.
+In fact, this is how the components in the Flex framework itself are built.
+For more information on broadcasting custom events, watch the video,
+Learn how to <a class="reference external" href="http://tv.adobe.com/watch/adc-presents/define-events-in-flex-4-with-flash-builder-4/">define and broadcast events</a>.</p>
+</div>
+<div class="section" id="creating-modules">
+<h2>Creating modules<a class="headerlink" href="#creating-modules" title="Permalink to this headline">¶</a></h2>
+<p>By default, all your code gets compiled into one SWF file.
+If your SWF file gets very large or contains functionality that only specific users may use,
+you can use <a class="reference external" href="http://help.adobe.com/en_US/Flex/4.0/UsingSDK/WS2db454920e96a9e51e63e3d11c0bf69084-799a.html">modules</a> to break your application into multiple SWF files that can be loaded
+and unloaded dynamically by the main application at runtime.
+To create a module, you create a class (ActionScript of MXML) extending the Module class and then compile it.
+To load the module dynamically at runtime into an application,
+you use the <strong>&lt;mx:ModuleLoader&gt;</strong> tag or methods of the ModuleLoader class.</p>
+</div>
+<div class="section" id="using-a-microarchitecture">
+<h2>Using a microarchitecture<a class="headerlink" href="#using-a-microarchitecture" title="Permalink to this headline">¶</a></h2>
+<p>That covers the basics for building an application,
+but as your application gets larger, you are going to want to use some methodology to organize its files, centralize the application data and data services, and handle communication between all the components. To do this, you can build your Flex application using all the design patterns that have proven useful over the years in enterprise application development. In fact, many Flex specific microarchitectures have been and continue to be developed. The oldest and most established is Cairngorm, an open source microarchitecture that uses commands and delegates, front controllers, a singleton data model, a singleton service store, and an event dispatcher. Other popular frameworks include Pure MVC, Mate, Parsley, Swiz, and Spring ActionScript. For more information about these and other frameworks, see Flex Architecture on the Adobe Developer Center.</p>
+</div>
 </div>
 
 

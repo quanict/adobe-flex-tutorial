@@ -3,9 +3,7 @@ Flex - Basic Controls
 
 .. toctree::
    :maxdepth: 3
-   :caption: Welcome
-
-
+   :caption: flex_form
 
 Every user interface considers the following three main aspects −
 

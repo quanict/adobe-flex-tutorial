@@ -35,7 +35,7 @@
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="messaging.html" />
+    <link rel="next" title="Messaging" href="messaging.html" />
     <link rel="prev" title="Flash Remoting" href="flash-remoting.html" /> 
 </head>
 
@@ -85,18 +85,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../intro/overview.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../intro/environment.html">System Requirement</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/flex_applications.html">Flex - Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_create_application.html">Flex - Create Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_life_cycle_phases.html">Flex - Life Cycle Phases</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../application/flex_deploy_application.html">Flex - Deploy Application</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_css.html">Flex - Style with CSS</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../style/flex_style_with_skin.html">Flex - Style with Skin</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_data_binding.html">Flex - Data Binding</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../form/flex_basic_controls.html">Flex - Basic Controls</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../style/flex_style.html">Flex - Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../form/flex_form.html">Flex - Form</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../control/flex_image_control.html">Flex - Image Control</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">The architecture of Flex and Java applications</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="architecture.html">Architecture Java applications</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="client-server.html">Client/server architecture</a></li>
 <li class="toctree-l2"><a class="reference internal" href="flash-remoting.html">Flash Remoting</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Security</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-services-config-xml">Modifying services-config.xml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#modifying-remoting-config-xml">Modifying remoting-config.xml</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#adding-code-to-the-flex-application">Adding code to the Flex application</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="messaging.html">Messaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="data-managed-applications.html">Data managed applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="model-driven-development.html">Model driven development</a></li>
 <li class="toctree-l2"><a class="reference internal" href="portal-integration.html">Portal integration</a></li>
@@ -147,7 +148,7 @@
     
       <li><a href="../index.html">Docs</a> &raquo;</li>
         
-          <li><a href="architecture.html">The architecture of Flex and Java applications</a> &raquo;</li>
+          <li><a href="architecture.html">Architecture Java applications</a> &raquo;</li>
         
       <li>Security</li>
     
@@ -170,6 +171,47 @@
             
   <div class="section" id="security">
 <h1>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+</div>
+<p>In many applications, access to some or all server-side resources must be restricted to certain users. Many Java EE applications use container managed security in which user authentication (validating a user) and user authorization (determining what the user has access to—which is often role based) are performed against the Realm, an existing store of usernames, passwords, and user roles. The Realm is configured on your Java EE server to be a relational database, an LDAP directory server, an XML document, or to use a specific authentication and authorization framework.</p>
+<p>To integrate a Flex application with the Java EE security framework so that access to server-side resources is appropriately restricted, you add security information to the BlazeDS or LiveCycle Data Services configuration files (details follow below) and then typically in the Flex application, create a form to obtain login credentials from the user which are passed to the server to be authenticated. The user credentials are then passed to the server automatically with all subsequent requests.</p>
+<div class="section" id="modifying-services-config-xml">
+<h2>Modifying services-config.xml<a class="headerlink" href="#modifying-services-config-xml" title="Permalink to this headline">¶</a></h2>
+<p>In the BlazeDS or LiveCycle Data Services services-config.xml file, you need to specify the “login command” for your application server in the
+&lt;security&gt;
+tag. BlazeDS and LiveCycle Data Services supply the following login commands: TomcatLoginCommand (for both Tomcat and JBoss), JRunLoginCommand, WeblogicLoginCommand, WebSphereLoginCommand, OracleLoginCommand. These are all defined in the XML file and you just need to uncomment the appropriate one.</p>
+<p>You also need to define a security constraint that you specify to use either basic or custom authentication and if desired,
+one or more roles. To do custom authentication with Tomat or JBoss,
+you also need to add some extra classes to the web application for integrating with the security framework used by the Jave EE application server and modify a couple of configuration files.
+Mode details can be found <a class="reference external" href="http://livedocs.adobe.com/blazeds/1/blazeds_devguide/">here</a>.</p>
+</div>
+<div class="section" id="modifying-remoting-config-xml">
+<h2>Modifying remoting-config.xml<a class="headerlink" href="#modifying-remoting-config-xml" title="Permalink to this headline">¶</a></h2>
+<p>Next, in your destination definition, you need to reference the security constraint:</p>
+<p>You can also define default security constraints for all destinations and/or restrict access to only specific methods that can use different security constraints.</p>
+<p>The default channel, my-amf, uses HTTP. You can change one or more of the destinations to use the my-secure-amf channel that uses HTTPS:</p>
+<p>where <cite>my-secure-amf</cite> is defined in the <cite>services-config.xml</cite> file:</p>
+<dl>
+<dt>&lt;!– Non-polling secure AMF –&gt;</dt><dd><dl class="simple">
+<dt>&lt;channel-definition id=”my-secure-amf” class=”mx.messaging.channels.SecureAMFChannel”&gt;</dt><dd><p>&lt;endpoint url=”<a class="reference external" href="https:/">https:/</a>/{server.name}:{server.port}/{context.root}/messagebroker/amfsecure” class=”flex.messaging.endpoints.SecureAMFEndpoint”/&gt;</p>
+</dd>
+</dl>
+<p>&lt;/channel-definition&gt;</p>
+</dd>
+</dl>
+</div>
+<div class="section" id="adding-code-to-the-flex-application">
+<h2>Adding code to the Flex application<a class="headerlink" href="#adding-code-to-the-flex-application" title="Permalink to this headline">¶</a></h2>
+<p>That covers the server-side setup.
+Now, if you are using custom authentication,
+you need to create a form in the Flex application to retrieve a username and password from the user and then pass these credentials
+to the server by calling the <strong>ChannelSet.login()</strong> method
+and then listening for its <strong>result</strong> and <strong>fault</strong> events.
+A result event indicates that the login (the authentication) occurred successfully, and a <strong>fault</strong> event indicates the login failed.
+The credentials are applied to all services connected over the same ChannelSet.
+For basic authentication, you don’t have to add anything to your Flex application. The browser opens a login dialog box when the application first attempts to connect to a destination.</p>
+<p>Your application can now make Flash Remoting requests to server destinations just as before, but now the user credentials are automatically sent with every request (for both custom and basic authentication). If the destination or methods of the destination have authorization roles specified which are not met by the logged in user, the call will return a fault event. To remove the credentials and log out the user, you use the ChannelSet.logout() method.</p>
+</div>
 </div>
 
 
@@ -180,7 +222,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="messaging.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="messaging.html" class="btn btn-neutral float-right" title="Messaging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="flash-remoting.html" class="btn btn-neutral float-left" title="Flash Remoting" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
